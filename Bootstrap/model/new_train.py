@@ -4,8 +4,8 @@ from __future__ import absolute_import
 import sys
 import os
 from classes.dataset.Generator import *
-from classes.model.pix2code import *
-from classes.model.newpix2code import *
+# from classes.model.pix2code import *
+# from classes.model.newpix2code import *
 from classes.model.UItoPage import *
 import tensorflow as tf
 __author__ = 'Hui Lei'
