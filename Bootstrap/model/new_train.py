@@ -11,7 +11,7 @@ import tensorflow as tf
 __author__ = 'Hui Lei'
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ['CUDA_VISIBLE_DEVICES'] = "0"  # 限制只使用GPU 1
+os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"  # 限制只使用GPU 1
 
 config = tf.ConfigProto()
 config.log_device_placement = True
@@ -86,6 +86,7 @@ def run(input_path, output_path, is_memory_intensive=False, pretrained_model=Non
         early_stopping = model.earlyStopping_callback()
         tbcallback = model.tensorboard_callback(BATCH_SIZE)
         callbacks_list = [checkpoint, early_stopping, tbcallback]
+        # callbacks_list = [checkpoint, tbcallback]
         history = model.fit_generator(generator, steps_per_epoch=steps_per_epoch, val_data=val_generator,
                                       val_steps=validation_steps, callbacks_list=callbacks_list)
 
