@@ -1,0 +1,9 @@
+Splitting datasets, training samples: 13412.0, evaluation samples: 1916.0
+Traceback (most recent call last):
+  File "./build_datasets.py", line 96, in <module>
+    shutil.copyfile("{}/{}.png".format(input_path, path), "{}/{}/{}.png".format(os.path.dirname(input_path), TRAINING_SET_NAME, path))
+  File "/home/xdjf/anaconda3/lib/python3.7/shutil.py", line 122, in copyfile
+    copyfileobj(fsrc, fdst)
+  File "/home/xdjf/anaconda3/lib/python3.7/shutil.py", line 79, in copyfileobj
+    buf = fsrc.read(length)
+KeyboardInterrupt
