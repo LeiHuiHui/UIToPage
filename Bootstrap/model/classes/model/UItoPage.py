@@ -99,7 +99,7 @@ class UItoPage(AModel):
 
     def train_visualization(self, history):
         plt.style.use("ggplot")
-        # plt.figure() 可以自定义图片大小和颜色等
+        plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练损失值
         plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
         plt.title('Train loss')
@@ -108,7 +108,9 @@ class UItoPage(AModel):
         plt.legend(loc='upper right')
         # plt.show()
         plt.savefig(self.output_path+"/train_loss.png")
+        plt.close(0)
 
+        plt.figure(0)  # 可以自定义图片大小和颜色等
         plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
         plt.title('Evaluation accuracy')
         plt.ylabel('Accuracy')
@@ -117,7 +119,9 @@ class UItoPage(AModel):
         plt.legend(loc='lower right')
         # plt.show()
         plt.savefig(self.output_path+"/val_acc.png")
+        plt.close(0)
 
+        plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练 & 验证的准确率值
         plt.plot(np.arange(1, EPOCHS+1), history.history['acc'], label="train_acc")
         plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
@@ -128,7 +132,9 @@ class UItoPage(AModel):
         plt.legend(loc='lower right')
         # plt.show()
         plt.savefig(self.output_path+"/acc.png")
+        plt.close(0)
 
+        plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练 & 验证的损失值
         plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
         plt.plot(np.arange(1, EPOCHS+1), history.history['val_loss'], label="eval_loss")
@@ -138,7 +144,9 @@ class UItoPage(AModel):
         plt.legend(loc='upper right')
         # plt.show()
         plt.savefig(self.output_path+"/loss.png")
+        plt.close(0)
 
+        plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练损失值 & 验证准确率值
         plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
         plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
@@ -148,6 +156,7 @@ class UItoPage(AModel):
         plt.legend(loc='upper right')
         # plt.show()
         plt.savefig(self.output_path+"/train_loss and eval_acc.png")
+        plt.close(0)
 
         history_json = json.dumps(history.history)
         with open("{}/{}.json".format(self.output_path, "history"), "w") as historyfile:
@@ -160,3 +169,4 @@ class UItoPage(AModel):
         # from IPython.display import SVG
         # from keras.utils.vis_utils import model_to_dot
         # SVG(model_to_dot(model).create(prog='dot', format='svg'))
+        print("model_img saved")
