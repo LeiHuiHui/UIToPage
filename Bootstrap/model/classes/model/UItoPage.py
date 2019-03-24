@@ -1,4 +1,6 @@
 from __future__ import absolute_import
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from keras.layers import Input, Dense, Dropout, RepeatVector, LSTM, concatenate, Conv2D, Flatten, Embedding, GRU
 from keras.models import Sequential, Model
@@ -99,14 +101,14 @@ class UItoPage(AModel):
         plt.style.use("ggplot")
         # plt.figure() 可以自定义图片大小和颜色等
         # 绘制训练损失值
-        plt.plot(np.arange(0, EPOCHS), history.history['loss'], label="train_loss")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
         plt.title('Train loss')
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
         plt.legend(loc='upper right')
         plt.show()
 
-        plt.plot(np.arange(0, EPOCHS), history.history['val_acc'], label="eval_acc")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
         plt.title('Evaluation accuracy')
         plt.ylabel('Accuracy')
         plt.xlabel('Epoch')
@@ -115,8 +117,8 @@ class UItoPage(AModel):
         plt.show()
 
         # 绘制训练 & 验证的准确率值
-        plt.plot(np.arange(0, EPOCHS), history.history['acc'], label="train_acc")
-        plt.plot(np.arange(0, EPOCHS), history.history['val_acc'], label="eval_acc")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['acc'], label="train_acc")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
         plt.title('Train&evaluation accuracy')
         plt.ylabel('Accuracy')
         plt.xlabel('Epoch')
@@ -125,8 +127,8 @@ class UItoPage(AModel):
         plt.show()
 
         # 绘制训练 & 验证的损失值
-        plt.plot(np.arange(0, EPOCHS), history.history['loss'], label="train_loss")
-        plt.plot(np.arange(0, EPOCHS), history.history['val_loss'], label="eval_loss")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['val_loss'], label="eval_loss")
         plt.title('Train&evaluation loss')
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
@@ -134,8 +136,8 @@ class UItoPage(AModel):
         plt.show()
 
         # 绘制训练损失值 & 验证准确率值
-        plt.plot(np.arange(0, EPOCHS), history.history['loss'], label="train_loss")
-        plt.plot(np.arange(0, EPOCHS), history.history['val_acc'], label="eval_acc")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
+        plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
         plt.title('Train loss&Eval acc')
         plt.ylabel('Loss&Acc')
         plt.xlabel('Epoch')
