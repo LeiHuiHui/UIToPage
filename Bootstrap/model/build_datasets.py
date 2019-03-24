@@ -82,19 +82,22 @@ for path in paths:
 assert len(eval_set) == evaluation_samples_number
 assert len(train_set) == training_samples_number
 
-if not os.path.exists("{}/{}".format(os.path.dirname(input_path), EVALUATION_SET_NAME)):
-    os.makedirs("{}/{}".format(os.path.dirname(input_path), EVALUATION_SET_NAME))
+EVALUATION_SET_PATH = "{}/{}".format(os.path.dirname(os.path.dirname(input_path)), EVALUATION_SET_NAME)
+TRAINING_SET_PATH = "{}/{}".format(os.path.dirname(os.path.dirname(input_path)), TRAINING_SET_NAME)
 
-if not os.path.exists("{}/{}".format(os.path.dirname(input_path), TRAINING_SET_NAME)):
-    os.makedirs("{}/{}".format(os.path.dirname(input_path), TRAINING_SET_NAME))
+if not os.path.exists(EVALUATION_SET_PATH):
+    os.makedirs(EVALUATION_SET_PATH)
+
+if not os.path.exists(TRAINING_SET_PATH):
+    os.makedirs(TRAINING_SET_PATH)
 
 for path in eval_set:
-    shutil.copyfile("{}/{}.png".format(input_path, path), "{}/{}/{}.png".format(os.path.dirname(input_path), EVALUATION_SET_NAME, path))
-    shutil.copyfile("{}/{}.gui".format(input_path, path), "{}/{}/{}.gui".format(os.path.dirname(input_path), EVALUATION_SET_NAME, path))
+    shutil.copyfile("{}/{}.png".format(input_path, path), "{}/{}.png".format(EVALUATION_SET_PATH, path))
+    shutil.copyfile("{}/{}.gui".format(input_path, path), "{}/{}.gui".format(EVALUATION_SET_PATH, path))
 
 for path in train_set:
-    shutil.copyfile("{}/{}.png".format(input_path, path), "{}/{}/{}.png".format(os.path.dirname(input_path), TRAINING_SET_NAME, path))
-    shutil.copyfile("{}/{}.gui".format(input_path, path), "{}/{}/{}.gui".format(os.path.dirname(input_path), TRAINING_SET_NAME, path))
+    shutil.copyfile("{}/{}.png".format(input_path, path), "{}/{}.png".format(TRAINING_SET_PATH, path))
+    shutil.copyfile("{}/{}.gui".format(input_path, path), "{}/{}.gui".format(TRAINING_SET_PATH, path))
 
-print("Training dataset: {}/training_set".format(os.path.dirname(input_path), path))
-print("Evaluation dataset: {}/eval_set".format(os.path.dirname(input_path), path))
+print("Training dataset: {}".format(TRAINING_SET_PATH))
+print("Evaluation dataset: {}".format(EVALUATION_SET_PATH))
