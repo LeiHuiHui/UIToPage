@@ -106,7 +106,8 @@ class UItoPage(AModel):
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
         plt.legend(loc='upper right')
-        plt.show()
+        # plt.show()
+        plt.savefig(self.output_path+"/train_loss.png")
 
         plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
         plt.title('Evaluation accuracy')
@@ -114,7 +115,8 @@ class UItoPage(AModel):
         plt.xlabel('Epoch')
         # plt.legend(['Train'], loc='upper left')
         plt.legend(loc='lower right')
-        plt.show()
+        # plt.show()
+        plt.savefig(self.output_path+"/val_acc.png")
 
         # 绘制训练 & 验证的准确率值
         plt.plot(np.arange(1, EPOCHS+1), history.history['acc'], label="train_acc")
@@ -124,7 +126,8 @@ class UItoPage(AModel):
         plt.xlabel('Epoch')
         # plt.legend(['Train'], loc='upper left')
         plt.legend(loc='lower right')
-        plt.show()
+        # plt.show()
+        plt.savefig(self.output_path+"/acc.png")
 
         # 绘制训练 & 验证的损失值
         plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
@@ -133,7 +136,8 @@ class UItoPage(AModel):
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
         plt.legend(loc='upper right')
-        plt.show()
+        # plt.show()
+        plt.savefig(self.output_path+"/loss.png")
 
         # 绘制训练损失值 & 验证准确率值
         plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
@@ -142,19 +146,8 @@ class UItoPage(AModel):
         plt.ylabel('Loss&Acc')
         plt.xlabel('Epoch')
         plt.legend(loc='upper right')
-        plt.show()
-
-        # 绘制训练 & 验证的损失值准确率值
-        # plt.plot(np.arange(0, EPOCHS), history.history["loss"], label="train_loss")
-        # plt.plot(np.arange(0, EPOCHS), history.history["val_loss"], label="val_loss")
-        # plt.plot(np.arange(0, EPOCHS), history.history["acc"], label="train_acc")
-        # plt.plot(np.arange(0, EPOCHS), history.history["val_acc"], label="val_acc")
-        # plt.title("Training Loss and Accuracy on Dataset")
-        # plt.xlabel("Epoch")
-        # plt.ylabel("Loss/Accuracy")
-        # plt.legend(loc="lower right")
-        # plt.savefig("../bin/pix2code-bootstrap-1-bin/train_loss_acc.png")
         # plt.show()
+        plt.savefig(self.output_path+"/train_loss and eval_acc.png")
 
         history_json = json.dumps(history.history)
         with open("{}/{}.json".format(self.output_path, "history"), "w") as historyfile:
