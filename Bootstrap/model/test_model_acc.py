@@ -4,8 +4,7 @@ from __future__ import absolute_import
 import os
 import sys
 from classes.Sampler import *
-# from classes.model.pix2code import *
-from classes.model.newpix2code import *
+from classes.model.pix2code import *
 import numpy as np
 from nltk.translate.bleu_score import corpus_bleu
 
@@ -31,8 +30,7 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
     voc.retrieve(weights_path)
     vocabulary_size = voc.size
 
-    # model = pix2code(input_shape, output_size, trained_weights_path)
-    model = newpix2code(input_shape, output_size, trained_weights_path, vocabulary_size)
+    model = pix2code(input_shape, output_size, trained_weights_path)
     # model.load(trained_model_name)
     # trained_weights_name 为带后缀名的，如 xx.hdf5
     model.load(name=trained_model_name, weights_name=trained_weights_name)
@@ -54,13 +52,13 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
             else:
                 if evaluation_img is not None:
                     if search_method == "greedy":
-                        result, _ = sampler.predict_greedy(model, np.array([evaluation_img]))
+                        result, _ = sampler.predict_greedy(model, np.array([evaluation_img]),require_sparse_label=False)
                         predict_result = result.replace(START_TOKEN, "").replace(END_TOKEN, "")
                         print("Evaluate image: {}\nResult greedy: {}".format(file_name, predict_result))
                     else:
                         beam_width = int(search_method)
                         print("Search with beam width: {}".format(beam_width))
-                        result, _ = sampler.predict_beam_search(model, np.array([evaluation_img]), beam_width=beam_width)
+                        result, _ = sampler.predict_beam_search(model, np.array([evaluation_img]), beam_width=beam_width, require_sparse_label=False)
                         predict_result =result.replace(START_TOKEN, "").replace(END_TOKEN, "")
                         print("Evaluate image: {}\nResult beam: {}".format(file_name, predict_result))
 
