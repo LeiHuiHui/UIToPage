@@ -4,7 +4,8 @@ from __future__ import absolute_import
 import os
 import sys
 from classes.Sampler import *
-from classes.model.pix2code import *
+# from classes.model.pix2code import *
+from classes.model.newpix2code import *
 import numpy as np
 from nltk.translate.bleu_score import corpus_bleu
 
@@ -25,9 +26,15 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
     input_shape = meta_dataset[0]
     output_size = meta_dataset[1]
 
-    model = pix2code(input_shape, output_size, trained_weights_path)
+    # get vocabulary size
+    voc = Vocabulary()
+    voc.retrieve(weights_path)
+    vocabulary_size = voc.size
+
+    # model = pix2code(input_shape, output_size, trained_weights_path)
+    model = newpix2code(input_shape, output_size, trained_weights_path, vocabulary_size)
     # model.load(trained_model_name)
-    # trained_weights_name 为带后缀名的，如 .hdf5
+    # trained_weights_name 为带后缀名的，如 xx.hdf5
     model.load(name=trained_model_name, weights_name=trained_weights_name)
 
     sampler = Sampler(trained_weights_path, input_shape, output_size, CONTEXT_LENGTH)

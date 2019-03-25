@@ -159,3 +159,4 @@ Bootstrap/datasets/*
 Bootstrap/bin/*
 Bootstrap/code/*
 
+.vscode/*
