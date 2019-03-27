@@ -21,7 +21,7 @@ L = W*H
 D = 512
 
 class Att_UIToPage(AModel):
-    def __init__(self, input_shape, output_size, output_path, vocabulary_size, embedding_size, D=512):
+    def __init__(self, input_shape, output_size, output_path, vocabulary_size, embedding_size,T=None, D=512):
         AModel.__init__(self, input_shape, output_size, output_path)
         self.name = "Att_UIToPage"
 
@@ -61,9 +61,9 @@ class Att_UIToPage(AModel):
         initial_state_c = Dense(embedding_size)(averaged_image_features)
         encoded_image_features = TimeDistributed(Dense(D, activation="relu"))(learned_image_features)
 
-        textual_input = Input(shape=(CONTEXT_LENGTH,))
-        # texts = Embedding(vocab_size+1, 50, input_length=CONTEXT_LENGTH, mask_zero=True)(textual_input)
-        texts = Embedding(vocabulary_size, embedding_size, input_length=CONTEXT_LENGTH)(textual_input)
+        textual_input = Input(shape=(T,))
+        # texts = Embedding(vocab_size+1, 50, input_length=CONTENT_LENGTH, mask_zero=True)(textual_input)
+        texts = Embedding(vocabulary_size, embedding_size, input_length=T)(textual_input)
 
         encoder = LSTM(embedding_size, return_sequences=True, return_state=True, recurrent_dropout=0.1)
         attented_encoder = ExternalAttentionRNNWrapper(encoder, return_attention=True)
