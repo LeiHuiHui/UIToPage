@@ -77,7 +77,7 @@ def run(input_path, output_path, is_memory_intensive=False, pretrained_model=Non
 
     # model = pix2code(input_shape, output_size, output_path)
     # model = newpix2code(input_shape, output_size, output_path, dataset.voc.size)
-    model = Att_UIToPage(input_shape, output_size, output_path, dataset.voc.size)
+    model = Att_UIToPage(input_shape, output_size, output_path, dataset.voc.size, embedding_size=512)
     model.model.compile(adam(0.001), loss='categorical_crossentropy', metrics=["accuracy"])
 
     if pretrained_model is not None:
