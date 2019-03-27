@@ -38,7 +38,7 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
     sampler = Sampler(trained_weights_path, input_shape, output_size, CONTEXT_LENGTH)
 
     actual, predicted = list(), list()
-
+    current_num = 0
     for f in os.listdir(input_path):
         if f.find(".gui") != -1:
             file_name = f[:f.find(".gui")]
@@ -54,13 +54,15 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
                     if search_method == "greedy":
                         result, _ = sampler.predict_greedy(model, np.array([evaluation_img]),require_sparse_label=False)
                         predict_result = result.replace(START_TOKEN, "").replace(END_TOKEN, "")
-                        print("Evaluate image: {}\nResult greedy: {}".format(file_name, predict_result))
+                        current_num += 1
+                        print("Num:{} Evaluate image: {}\n".format(current_num,file_name))
                     else:
                         beam_width = int(search_method)
                         print("Search with beam width: {}".format(beam_width))
                         result, _ = sampler.predict_beam_search(model, np.array([evaluation_img]), beam_width=beam_width, require_sparse_label=False)
                         predict_result =result.replace(START_TOKEN, "").replace(END_TOKEN, "")
-                        print("Evaluate image: {}\nResult beam: {}".format(file_name, predict_result))
+                        current_num += 1
+                        print("Num:{} Evaluate image: {}\n".format(current_num,file_name))
 
                     with open("{}/{}.gui".format(output_path, file_name), 'w') as out_f:
                         out_f.write(predict_result)

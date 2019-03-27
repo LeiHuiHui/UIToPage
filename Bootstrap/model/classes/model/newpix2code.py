@@ -61,24 +61,6 @@ class newpix2code(AModel):
         history = self.model.fit([images, partial_captions], next_words, shuffle=False, epochs=EPOCHS, batch_size=BATCH_SIZE, verbose=1, validation_split=0.2)
         self.save()
 
-        # 绘制训练 & 验证的准确率值
-        plt.plot(history.history['acc'])
-        plt.plot(history.history['val_acc'])
-        plt.title('Model accuracy')
-        plt.ylabel('Accuracy')
-        plt.xlabel('Epoch')
-        plt.legend(['Train', 'Test'], loc='upper left')
-        plt.show()
-
-        # 绘制训练 & 验证的损失值
-        plt.plot(history.history['loss'])
-        plt.plot(history.history['val_loss'])
-        plt.title('Model loss')
-        plt.ylabel('Loss')
-        plt.xlabel('Epoch')
-        plt.legend(['Train', 'Test'], loc='upper left')
-        plt.show()
-
     def fit_generator(self, generator, steps_per_epoch, val_steps, val_data=None, callbacks_list=None):
         history = self.model.fit_generator(generator, steps_per_epoch=steps_per_epoch, epochs=EPOCHS, verbose=2,
                                            validation_data=val_data, validation_steps=val_steps, callbacks=callbacks_list)

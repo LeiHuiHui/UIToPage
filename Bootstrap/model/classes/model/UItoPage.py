@@ -67,24 +67,6 @@ class UItoPage(AModel):
         history = self.model.fit([images, partial_captions], next_words, shuffle=False, epochs=EPOCHS, batch_size=BATCH_SIZE, verbose=1, validation_split=0.2)
         self.save()
 
-        # 绘制训练 & 验证的准确率值
-        plt.plot(history.history['acc'])
-        plt.plot(history.history['val_acc'])
-        plt.title('Model accuracy')
-        plt.ylabel('Accuracy')
-        plt.xlabel('Epoch')
-        plt.legend(['Train', 'Test'], loc='upper left')
-        plt.show()
-
-        # 绘制训练 & 验证的损失值
-        plt.plot(history.history['loss'])
-        plt.plot(history.history['val_loss'])
-        plt.title('Model loss')
-        plt.ylabel('Loss')
-        plt.xlabel('Epoch')
-        plt.legend(['Train', 'Test'], loc='upper left')
-        plt.show()
-
     def fit_generator(self, generator, steps_per_epoch, val_steps, val_data=None, callbacks_list=None):
         history = self.model.fit_generator(generator, steps_per_epoch=steps_per_epoch, epochs=EPOCHS, verbose=2,
                                            validation_data=val_data, validation_steps=val_steps, callbacks=callbacks_list)
@@ -98,10 +80,11 @@ class UItoPage(AModel):
         return self.model.predict([images, partial_captions], verbose=1)
 
     def train_visualization(self, history):
+        real_epoches = len(history.epoch)
         plt.style.use("ggplot")
         plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练损失值
-        plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
+        plt.plot(np.arange(1, real_epoches+1), history.history['loss'], label="train_loss")
         plt.title('Train loss')
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
@@ -111,7 +94,7 @@ class UItoPage(AModel):
         plt.close(0)
 
         plt.figure(0)  # 可以自定义图片大小和颜色等
-        plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
+        plt.plot(np.arange(1, real_epoches+1), history.history['val_acc'], label="eval_acc")
         plt.title('Evaluation accuracy')
         plt.ylabel('Accuracy')
         plt.xlabel('Epoch')
@@ -123,8 +106,8 @@ class UItoPage(AModel):
 
         plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练 & 验证的准确率值
-        plt.plot(np.arange(1, EPOCHS+1), history.history['acc'], label="train_acc")
-        plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
+        plt.plot(np.arange(1, real_epoches+1), history.history['acc'], label="train_acc")
+        plt.plot(np.arange(1, real_epoches+1), history.history['val_acc'], label="eval_acc")
         plt.title('Train&evaluation accuracy')
         plt.ylabel('Accuracy')
         plt.xlabel('Epoch')
@@ -136,8 +119,8 @@ class UItoPage(AModel):
 
         plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练 & 验证的损失值
-        plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
-        plt.plot(np.arange(1, EPOCHS+1), history.history['val_loss'], label="eval_loss")
+        plt.plot(np.arange(1, real_epoches+1), history.history['loss'], label="train_loss")
+        plt.plot(np.arange(1, real_epoches+1), history.history['val_loss'], label="eval_loss")
         plt.title('Train&evaluation loss')
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
@@ -148,8 +131,8 @@ class UItoPage(AModel):
 
         plt.figure(0)  # 可以自定义图片大小和颜色等
         # 绘制训练损失值 & 验证准确率值
-        plt.plot(np.arange(1, EPOCHS+1), history.history['loss'], label="train_loss")
-        plt.plot(np.arange(1, EPOCHS+1), history.history['val_acc'], label="eval_acc")
+        plt.plot(np.arange(1, real_epoches+1), history.history['loss'], label="train_loss")
+        plt.plot(np.arange(1, real_epoches+1), history.history['val_acc'], label="eval_acc")
         plt.title('Train loss&Eval acc')
         plt.ylabel('Loss&Acc')
         plt.xlabel('Epoch')

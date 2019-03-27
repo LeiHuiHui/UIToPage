@@ -4,6 +4,7 @@ from keras.models import model_from_json
 from keras.callbacks import ModelCheckpoint
 from keras.callbacks import TensorBoard
 from keras.callbacks import EarlyStopping
+import matplotlib.pyplot as plt
 
 
 class AModel:
@@ -44,7 +45,7 @@ class AModel:
 
     def tensorboard_callback(self,batch_size):
         # tbcallback = TensorBoard(log_dir=self.output_path+"/Graph", write_grads=True, histogram_freq=1,write_images=True, batch_size=batch_size)
-        tbcallback = TensorBoard(log_dir=self.output_path+"/Graph")
+        tbcallback = TensorBoard(log_dir=self.output_path+"/logs",histogram_freq=0, batch_size=batch_size, write_graph=True, write_grads=False, write_images=False)
         return tbcallback
 
     def earlyStopping_callback(self):
