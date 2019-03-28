@@ -87,6 +87,8 @@ class Att_UIToPage(AModel):
         # texts = Embedding(vocab_size+1, 50, input_length=CONTENT_LENGTH, mask_zero=True)(textual_input)
         texts = Embedding(vocabulary_size, embedding_size, input_length=T)(textual_input)
 
+        print(K.ndim(texts))
+
         encoder = LSTM(embedding_size, return_sequences=True, return_state=True, recurrent_dropout=0.1)
         attented_encoder = ExternalAttentionRNNWrapper(encoder, return_attention=True)
         output = TimeDistributed(Dense(vocabulary_size, activation="softmax"), name="output")
