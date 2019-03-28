@@ -61,7 +61,7 @@ class Att_UIToPage(AModel):
         
 
         visual_input = Input(shape=input_shape)
-        learned_image_features = image_model(visual_input)
+        learned_image_features = image_model(visual_input)[0]
         print(image_model.output_shape)
         # learned_image_features = image_model.predict(visual_input)
 
