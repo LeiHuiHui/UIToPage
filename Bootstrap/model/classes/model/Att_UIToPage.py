@@ -63,8 +63,13 @@ class Att_UIToPage(AModel):
         visual_input = Input(shape=input_shape)
         learned_image_features = image_model(visual_input)
         print(image_model.output_shape)
-        print(learned_image_features.value)
-        print(learned_image_features.__sizeof__)
+        print(K.ndim(learned_image_features))
+        print(K.shape(learned_image_features))
+        K.reshape(learned_image_features,(14,14,512))
+        print(K.ndim(learned_image_features))
+        print(K.shape(learned_image_features))
+
+        
         # learned_image_features = image_model.predict(visual_input)
 
         averaged_image_features = Lambda(lambda x: K.mean(x, axis=1))
