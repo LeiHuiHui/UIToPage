@@ -11,7 +11,7 @@ import tensorflow as tf
 __author__ = 'Hui Lei'
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"  # 限制只使用GPU 1
+os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"  # 限制只使用GPU 0或1
 
 config = tf.ConfigProto()
 config.log_device_placement = True

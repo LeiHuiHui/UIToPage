@@ -22,8 +22,8 @@ class Utils:
         img = cv2.imread(img_path)
         img = cv2.resize(img, (image_size, image_size))
         img = img.astype('float32')
-        # img /= 255
-        img /= 224
+        # Normalize image to between 0 and 255
+        img /= 255
         return img
 
     @staticmethod
