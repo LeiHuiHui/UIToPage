@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 
 from keras.layers import Input, Dense, Dropout, RepeatVector, LSTM, concatenate, Conv2D, Flatten, Embedding, MaxPooling2D, TimeDistributed, Lambda
 from keras.models import Sequential, Model
+from keras.applications.vgg19 import VGG19
+from keras.applications.vgg19 import preprocess_input
 from kulc.attention import ExternalAttentionRNNWrapper
 from keras.optimizers import RMSprop
 from keras import *
@@ -26,6 +28,10 @@ class Att_UIToPage(AModel):
         self.name = "Att_UIToPage"
 
         # vgg19 block5 conv4 (224,224,3)->(14,14,512)->(W,H,D)
+        base_model = VGG19(weights=None, include_top=False)
+        image_model = Model(inputs=base_model.input, outputs=base_model.get_layer('block5_con3').output)
+
+        '''
         image_model = Sequential()
         # block 1
         image_model.add(Conv2D(64, (3, 3), activation='relu', padding='same', input_shape=input_shape))
@@ -52,9 +58,12 @@ class Att_UIToPage(AModel):
         image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
         image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
         image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
+        '''
 
         visual_input = Input(shape=input_shape)
-        learned_image_features = image_model(visual_input)
+        # learned_image_features = image_model(visual_input)
+        learned_image_features = image_model.predict(visual_input)
+
         averaged_image_features = Lambda(lambda x: K.mean(x, axis=1))
         averaged_image_features = averaged_image_features(learned_image_features)
         initial_state_h = Dense(embedding_size)(averaged_image_features)
