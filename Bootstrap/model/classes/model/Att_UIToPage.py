@@ -59,7 +59,7 @@ class Att_UIToPage(AModel):
         image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
         # image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
         print(image_model.output_shape)
-        image_model.add(Reshape(L,D))
+        image_model.add(Reshape((L,D)))
         print(image_model.output_shape)        
 
         visual_input = Input(shape=input_shape)
