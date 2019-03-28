@@ -67,9 +67,9 @@ class Att_UIToPage(AModel):
         print(learned_image_features.shape)
         print(learned_image_features.ndim)
 
-        # learned_image_features = K.variable(value=learned_image_features,dtype='float32')
-        # print(K.ndim(learned_image_features))
-        # print(K.shape(learned_image_features))
+        learned_image_features = K.variable(value=learned_image_features)
+        print(K.ndim(learned_image_features))
+        print(K.shape(learned_image_features))
         # K.reshape(learned_image_features,(3,14,14,512))
         # print(K.ndim(learned_image_features))
         # print(K.shape(learned_image_features))
