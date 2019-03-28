@@ -63,7 +63,7 @@ class Att_UIToPage(AModel):
         visual_input = Input(shape=input_shape)
         learned_image_features = image_model(visual_input)
         learned_image_features = np.array(learned_image_features)
-        learned_image_features = K.variable(learned_image_features)
+        learned_image_features = K.variable(value=learned_image_features,dtype='float32')
         print(image_model.output_shape)
         print(K.ndim(learned_image_features))
         print(K.shape(learned_image_features))
