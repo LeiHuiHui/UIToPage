@@ -531,7 +531,8 @@ class ExternalAttentionRNNWrapper(Wrapper):
         
         x = K.dot(K.concatenate([x, static_x_weighted], 1), self._W3) + self._b3
 
-        h, new_states = self.layer.cell.call(x, initial_state=states[:-2])
+        # h, new_states = self.layer.cell.call(x, states[:-2])
+        h, new_states = self.layer.call(x, initial_state=states[:-2])
         
         # append attention to the states to "smuggle" it out of the RNN wrapper
 
