@@ -359,7 +359,8 @@ class AttentionRNNWrapper(Wrapper):
         # to total_x_prod which is valid for all time steps
         hw = K.expand_dims(K.dot(h, self._W2), 1)
         additive_atn = total_x_prod + hw
-        attention = K.softmax(K.dot(additive_atn, self._V), axis=1)
+        # attention = K.softmax(K.dot(additive_atn, self._V), axis=1)
+        attention = K.softmax(K.dot(additive_atn, self._V))
         x_weighted = K.sum(attention * X, [1])
         
         x = K.dot(K.concatenate([x, x_weighted], 1), self._W3) + self._b3
