@@ -6,7 +6,7 @@ from keras.layers import Input, Dense, Dropout, RepeatVector, LSTM, concatenate,
 from keras.models import Sequential, Model
 from keras.applications.vgg19 import VGG19
 from keras.applications.vgg19 import preprocess_input
-from kulc.attention import ExternalAttentionRNNWrapper
+from classes.model.kulc.attention import ExternalAttentionRNNWrapper
 from keras.optimizers import RMSprop
 from keras import *
 import keras.backend as K
