@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import matplotlib.pyplot as plt
 
-from keras.layers import Input, Dense, Dropout, RepeatVector, LSTM, concatenate, Conv2D, Flatten, Embedding, MaxPooling2D, TimeDistributed, Lambda
+from keras.layers import Input, Dense, Dropout, RepeatVector, LSTM, concatenate, Conv2D, Flatten, Embedding, MaxPooling2D, TimeDistributed, Lambda,Reshape
 from keras.models import Sequential, Model
 from keras.applications.vgg19 import VGG19
 from keras.applications.vgg19 import preprocess_input
@@ -59,7 +59,8 @@ class Att_UIToPage(AModel):
         image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
         # image_model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
         print(image_model.output_shape)
-        
+        image_model.add(Reshape(L,D))
+        print(image_model.output_shape)        
 
         visual_input = Input(shape=input_shape)
         learned_image_features = image_model(visual_input)
@@ -68,13 +69,13 @@ class Att_UIToPage(AModel):
         # print(learned_image_features.shape)
         # print(learned_image_features.ndim)
 
-        K.squeeze(learned_image_features,0)
+        # K.squeeze(learned_image_features,0)
         print(K.ndim(learned_image_features))
         print(K.shape(learned_image_features))
 
-        K.reshape(learned_image_features,(-1,14,14,512))
-        print(K.ndim(learned_image_features))
-        print(K.shape(learned_image_features))
+        # K.reshape(learned_image_features,(-1,14*14,512))
+        # print(K.ndim(learned_image_features))
+        # print(K.shape(learned_image_features))
 
         
         # learned_image_features = image_model.predict(visual_input)
