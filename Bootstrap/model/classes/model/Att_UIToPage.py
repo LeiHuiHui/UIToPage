@@ -63,16 +63,18 @@ class Att_UIToPage(AModel):
 
         visual_input = Input(shape=input_shape)
         learned_image_features = image_model(visual_input)
-        K.squeeze(learned_image_features,0)
+
         # learned_image_features = np.array(learned_image_features)
         # print(learned_image_features.shape)
         # print(learned_image_features.ndim)
 
+        K.squeeze(learned_image_features,0)
         print(K.ndim(learned_image_features))
         print(K.shape(learned_image_features))
-        # K.reshape(learned_image_features,(3,14,14,512))
-        # print(K.ndim(learned_image_features))
-        # print(K.shape(learned_image_features))
+
+        K.reshape(learned_image_features,(-1,14,14,512))
+        print(K.ndim(learned_image_features))
+        print(K.shape(learned_image_features))
 
         
         # learned_image_features = image_model.predict(visual_input)
@@ -82,6 +84,8 @@ class Att_UIToPage(AModel):
         initial_state_h = Dense(embedding_size)(averaged_image_features)
         initial_state_c = Dense(embedding_size)(averaged_image_features)
         encoded_image_features = TimeDistributed(Dense(D, activation="relu"))(learned_image_features)
+        print(K.ndim(encoded_image_features))
+        print(K.shape(encoded_image_features))
 
         textual_input = Input(shape=(T,))
         # texts = Embedding(vocab_size+1, 50, input_length=CONTENT_LENGTH, mask_zero=True)(textual_input)
