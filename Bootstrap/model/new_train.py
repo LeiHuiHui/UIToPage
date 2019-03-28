@@ -83,10 +83,10 @@ def run(input_path, output_path, is_memory_intensive=False, pretrained_model=Non
         history = model.fit(dataset.input_images, dataset.partial_sequences, dataset.next_words)
     else:
         checkpoint = model.make_checkpoint()
-        # early_stopping = model.earlyStopping_callback()
-        tbcallback = model.tensorboard_callback(BATCH_SIZE)
-        # callbacks_list = [checkpoint, early_stopping, tbcallback]
-        callbacks_list = [checkpoint, tbcallback]
+        early_stopping = model.earlyStopping_callback()
+        # tbcallback = model.tensorboard_callback(BATCH_SIZE)
+        callbacks_list = [checkpoint, early_stopping]
+        # callbacks_list = [checkpoint, tbcallback]
         history = model.fit_generator(generator, steps_per_epoch=steps_per_epoch, val_data=val_generator,
                                       val_steps=validation_steps, callbacks_list=callbacks_list)
 
