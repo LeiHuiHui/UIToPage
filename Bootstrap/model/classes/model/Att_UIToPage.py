@@ -29,7 +29,7 @@ class Att_UIToPage(AModel):
 
         # vgg19 block5 conv4 (224,224,3)->(14,14,512)->(W,H,D)
         base_model = VGG19(weights=None, include_top=False)
-        image_model = Model(inputs=base_model.input, outputs=base_model.get_layer('block5_con3').output)
+        image_model = Model(inputs=base_model.input, outputs=base_model.get_layer('block5_conv3').output)
 
         '''
         image_model = Sequential()
