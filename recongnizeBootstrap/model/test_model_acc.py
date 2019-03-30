@@ -4,12 +4,13 @@ from __future__ import absolute_import
 import os
 import sys
 from classes.Sampler import *
-from classes.model.pix2code import *
+from classes.model.newpix2code import *
+from classes.model.UItoPage import *
 import numpy as np
 from nltk.translate.bleu_score import corpus_bleu
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ['CUDA_VISIBLE_DEVICES'] = "1"  # 限制只使用GPU 0
+os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"  # 限制只使用GPU 0
 
 
 # Read a file and return a string
@@ -30,7 +31,7 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
     voc.retrieve(weights_path)
     vocabulary_size = voc.size
 
-    model = pix2code(input_shape, output_size, trained_weights_path)
+    model = UItoPage(input_shape, output_size, trained_weights_path, vocabulary_size)
     # model.load(trained_model_name)
     # trained_weights_name 为带后缀名的，如 xx.hdf5
     model.load(name=trained_model_name, weights_name=trained_weights_name)
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     else:
         weights_path = argv[0]
         model_name = argv[1]
-        weights_name = argv[2]
+        weights_name = argv[2]# with .hdf5
         input_path = argv[3]
         output_path = argv[4]
         search_method = "greedy" if len(argv) < 6 else argv[5]
