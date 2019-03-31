@@ -47,12 +47,12 @@ file_name = basename(input_path)[:basename(input_path).find(".")]
 evaluation_img = Utils.get_preprocessed_img(input_path, IMAGE_SIZE)
 
 if search_method == "greedy":
-    result, _ = sampler.predict_greedy(model, np.array([evaluation_img]))
+    result, _ = sampler.predict_greedy(model, np.array([evaluation_img]),require_sparse_label=False)
     print("Result greedy: {}".format(result))
 else:
     beam_width = int(search_method)
     print("Search with beam width: {}".format(beam_width))
-    result, _ = sampler.predict_beam_search(model, np.array([evaluation_img]), beam_width=beam_width)
+    result, _ = sampler.predict_beam_search(model, np.array([evaluation_img]), beam_width=beam_width,require_sparse_label=False)
     print("Result beam: {}".format(result))
 
 with open("{}/{}.gui".format(output_path, file_name), 'w') as out_f:
