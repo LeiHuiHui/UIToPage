@@ -7,12 +7,12 @@ import sys
 
 from os.path import basename
 from classes.Sampler import *
-from classes.model.pix2code import *
+# from classes.model.pix2code import *
 from classes.model.newpix2code import *
 
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ['CUDA_VISIBLE_DEVICES'] = "0"
+os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"
 
 argv = sys.argv[1:]
 
@@ -32,8 +32,12 @@ meta_dataset = np.load("{}/meta_dataset.npy".format(trained_weights_path))
 input_shape = meta_dataset[0]
 output_size = meta_dataset[1]
 
+voc = Vocabulary()
+voc.retrieve(weights_path)
+vocabulary_size = voc.size
+
 # model = pix2code(input_shape, output_size, trained_weights_path)
-model = newpix2code(input_shape, output_size, trained_weights_path)
+model = newpix2code(input_shape, output_size, trained_weights_path, vocabulary_size)
 # trained_weights_name 为带后缀名的，如 .hdf5
 model.load(name=trained_model_name, weights_name=trained_weights_name)
 
