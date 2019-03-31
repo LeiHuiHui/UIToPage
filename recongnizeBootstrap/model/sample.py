@@ -33,7 +33,7 @@ input_shape = meta_dataset[0]
 output_size = meta_dataset[1]
 
 voc = Vocabulary()
-voc.retrieve(weights_path)
+voc.retrieve(trained_weights_path)
 vocabulary_size = voc.size
 
 # model = pix2code(input_shape, output_size, trained_weights_path)
