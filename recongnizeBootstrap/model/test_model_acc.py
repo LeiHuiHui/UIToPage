@@ -4,8 +4,8 @@ from __future__ import absolute_import
 import os
 import sys
 from classes.Sampler import *
-from classes.model.newpix2code import *
-# from classes.model.UItoPage import *
+# from classes.model.newpix2code import *
+from classes.model.UItoPage import *
 import numpy as np
 from nltk.translate.bleu_score import corpus_bleu
 
@@ -31,7 +31,7 @@ def evaluate_model(trained_weights_path, trained_model_name, trained_weights_nam
     voc.retrieve(weights_path)
     vocabulary_size = voc.size
 
-    model = newpix2code(input_shape, output_size, trained_weights_path, vocabulary_size)
+    model = UItoPage(input_shape, output_size, trained_weights_path, vocabulary_size)
     # model.load(trained_model_name)
     # trained_weights_name 为带后缀名的，如 xx.hdf5
     model.load(name=trained_model_name, weights_name=trained_weights_name)
