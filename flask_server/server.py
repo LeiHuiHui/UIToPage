@@ -27,7 +27,7 @@ def sample():
         return redirect(request.url)
     file = request.files["ui_image"]  # ui_image对应表单的name属性
     file_name = file.filename
-    file_tye = file_name.split(".")[-1]
+    file_type = file_name.split(".")[-1]
 
     # 保存ui图至ui_img
     if file is None:
@@ -36,11 +36,16 @@ def sample():
     else:
         pic_str = Pic_str()
         save_img_name = pic_str.create_uuid()
-        ui_img = "{}.{}".format(save_img_name,file_tye)
+        ui_img = "{}.{}".format(save_img_name,file_type)
         file.save(ui_img)
         result = {"status":1, "info":"接收到图片"+file_name}
-    # 调用模型，生成tokens
 
+        recognizer = UIRecongnizer(None)
+        # 调用模型，生成tokens
+        # 调用sampler，生成HTML
+        # parse html，得到components的main,返回给前端
+        main = recognizer.parse_html()
+        result["main"] = main
 
     result_json = json.dumps(result)
     # Response
