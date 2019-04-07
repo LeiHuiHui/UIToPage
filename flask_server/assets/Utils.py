@@ -51,10 +51,10 @@ class UIRecongnizer:
         self.input_shape = meta_dataset[0]
         self.output_size = meta_dataset[1]
         self.vocabulary_size = meta_dataset[2]
-        self.model = newpix2code(input_shape, output_size, self.trained_model_path, vocabulary_size)
+        self.model = newpix2code(self.input_shape, self.output_size, self.trained_model_path, self.vocabulary_size)
         self.model.load(name=self.trained_model_name, weights_name=self.trained_weights_file)
         self.sampler = Sampler(self.trained_model_path, self.input_shape, self.output_size, CONTEXT_LENGTH)
-        self.compiler = Compiler(dsl_path)
+        self.compiler = Compiler(self.dsl_path)
 
     def loadUI(self,ui_image_path):
         # 从路径中读取图片，并预处理成模型需要的大小
