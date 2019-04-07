@@ -12,7 +12,10 @@ JSON_PATH = FATHER_PATH + "/components.json"
 # 文件存放路径
 DATA_FOLDER = ROOT_PATH + "/data/"
 
+# Model config
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 TRAINED_MODEL_FOLDER = ROOT_PATH + "/recongnizeBootstrap/trained_model/"
-TRAINED_WEIGHTS_FILE = "weight.h5"
+TRAINED_WEIGHTS_FILE = "weights.hdf5"
 TRAINED_MODEL_NAME = "newpix2code"
 DSL_PATH = ROOT_PATH + "/recongnizeBootstrap/compiler/assets/web-dsl-mapping.json"
