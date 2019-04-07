@@ -28,11 +28,10 @@ def sample():
         # 表示没有发送文件
         result = {"status": 0, "info": "未上传文件"}
     else:
-        save_file(file,app.config["UPLOAD_FOLDER"])
+        img_save_path = save_file(file,app.config["UPLOAD_FOLDER"])
         result = {"status":1, "info":"接收到图片"+file.filename}
-        recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
-        recognizer.initialRecongnizer()
-        main = parse_html()
+        html_file_path = sample_ui_to_html(img_save_path, app.config["UPLOAD_FOLDER"])
+        main = parse_html(html_file_path)
         result["main"] = main
 
     result_json = json.dumps(result)

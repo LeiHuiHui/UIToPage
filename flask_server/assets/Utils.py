@@ -85,10 +85,10 @@ class UIRecongnizer:
         result, _ = self.sampler.predict_greedy(self.model, np.array([evaluation_img]),require_sparse_label=False)
         print("Result greedy: {}".format(result))
         gui = result.replace(START_TOKEN, "").replace(END_TOKEN, "")
-        gui_file = "{}/{}.gui".format(output_path, file_name)
-        with open(gui_file, 'w') as out_f:
+        gui_file_path = "{}/{}.gui".format(output_path, file_name)
+        with open(gui_file_path, 'w') as out_f:
             out_f.write(gui)
-        return gui_file,gui
+        return gui_file_path,gui
 
     def get_html(self, gui_file):
         # 调用模型compiler，得到UI对应的html代码
@@ -100,4 +100,4 @@ class UIRecongnizer:
         print(output_file_path)
 
         self.compiler.compile_p2c(input_file_path, output_file_path, rendering_function=self.render_content_with_text)
-        return 0
+        return html_file_path

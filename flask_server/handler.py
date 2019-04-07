@@ -20,17 +20,21 @@ def save_file(file, path):
     print("接收UI image，保存至",img_save_path)
     return img_save_path
 
-def sample_ui_to_html(img_path):
+def sample_ui_to_html(img_path,output_path):
     '''
     img_path:UI img的绝对路径
     '''
-    # load img
+    recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
+    recognizer.initialRecongnizer()
+    gui_file_path, gui = recognizer.get_gui(img_path,output_path)
+    html_file_path = recognizer.get_html(gui_file_path)
+    return html_file_path
 
-def parse_html():
+def parse_html(html_file_path):
         # 取生成的HTML的container，并转换成应用需要的draggable_components
         # 以page-2576.html为例
-        test_html_path = ROOT_PATH+"/page-2576.html"
-        soup = make_soup(test_html_path)
+        # test_html_path = ROOT_PATH+"/page-2576.html"
+        soup = make_soup(html_file_path)
 
         # 读取 components.json,此文件需保持最新
         jsonfile = open(JSON_PATH, 'r', encoding='utf-8')
