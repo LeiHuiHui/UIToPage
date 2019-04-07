@@ -5,8 +5,6 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = DATA_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
-recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
-recognizer.initialRecongnizer()
 
 @app.route('/')
 def index():
@@ -32,6 +30,8 @@ def sample():
     else:
         save_file(file,app.config["UPLOAD_FOLDER"])
         result = {"status":1, "info":"接收到图片"+file.filename}
+        recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
+        recognizer.initialRecongnizer()
         main = parse_html()
         result["main"] = main
 
