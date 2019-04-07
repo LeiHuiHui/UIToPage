@@ -1,14 +1,12 @@
 from flask import Flask, request, Response, redirect, flash
-import json
-import os
 from handler import *
 
-UPLOAD_FOLDER = '/uploads'  # 文件存放路径
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = DATA_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
+recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
+recognizer.initialRecongnizer()
 
 @app.route('/')
 def index():
@@ -26,25 +24,15 @@ def sample():
         flash('No ui_image part')
         return redirect(request.url)
     file = request.files["ui_image"]  # ui_image对应表单的name属性
-    file_name = file.filename
-    file_type = file_name.split(".")[-1]
 
     # 保存ui图至ui_img
     if file is None:
         # 表示没有发送文件
         result = {"status": 0, "info": "未上传文件"}
     else:
-        pic_str = Pic_str()
-        save_img_name = pic_str.create_uuid()
-        ui_img = "{}.{}".format(save_img_name,file_type)
-        file.save(ui_img)
-        result = {"status":1, "info":"接收到图片"+file_name}
-
-        recognizer = UIRecongnizer(None)
-        # 调用模型，生成tokens
-        # 调用sampler，生成HTML
-        # parse html，得到components的main,返回给前端
-        main = recognizer.parse_html()
+        save_file(file,app.config["UPLOAD_FOLDER"])
+        result = {"status":1, "info":"接收到图片"+file.filename}
+        main = parse_html()
         result["main"] = main
 
     result_json = json.dumps(result)

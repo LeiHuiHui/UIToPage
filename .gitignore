@@ -160,3 +160,4 @@ Bootstrap/bin/*
 Bootstrap/code/*
 
 *.vscode/
+flask_server/data/*

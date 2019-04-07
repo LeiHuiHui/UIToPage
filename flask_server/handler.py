@@ -1,48 +1,32 @@
-import datetime
-import random
 import os
-import json
-import re
 from assets.Utils import *
 from assets.Config import *
 
-CURRENT_PATH = os.path.abspath(__file__)
-# print('current_path:', CURRENT_PATH)
-FATHER_PATH = os.path.abspath(os.path.dirname(CURRENT_PATH))
-# print('father_path:',FATHER_PATH)
+
+def get_uniq_name():
+    pic_str = Pic_str()
+    uniqe_name = pic_str.create_uuid()
+    return uniqe_name
 
 
-# 生成唯一的文件名，避免重复
-class Pic_str:
-    def create_uuid(self):  # 生成唯一的图片的名称字符串，防止图片显示时的重名问题
-        nowTime = datetime.datetime.now().strftime("%Y%m%d%H%M%S")  # 生成当前时间
-        randomNum = random.randint(0, 100)  # 生成的随机整数n，其中0<=n<=100
-        if randomNum <= 10:
-            randomNum = str(0) + str(randomNum)
-        uniqueNum = str(nowTime) + str(randomNum)
-        return uniqueNum
+def save_file(file, path):
+    # 保存上传的图片到本地
+    uniq_name = get_uniq_name()
+    file_name = file.filename
+    file_type = file_name.split(".")[-1]
+    ui_img_name = "{}.{}".format(uniq_name,file_type)
+    img_save_path = os.path.join(path,ui_img_name)
+    file.save(img_save_path)
+    print("接收UI image，保存至",img_save_path)
+    return img_save_path
 
+def sample_ui_to_html(img_path):
+    '''
+    img_path:UI img的绝对路径
+    '''
+    # load img
 
-class UIRecongnizer:
-    def __init__(self, ui_image_path):
-        self.model_name = "UItoPage"
-        self.ui_image_path = ui_image_path
-        self.gui = ""
-        self.html = ""
-
-    def loadUI(self):
-        # 从路径中读取图片，并预处理成模型需要的大小
-        return 0
-
-    def get_gui(self):
-        # 加载模型， 并调用模型sampler，得到UI对应的gui
-        return 0
-
-    def get_html(self):
-        # 调用模型compiler，得到UI对应的html代码
-        return 0
-
-    def parse_html(self):
+def parse_html():
         # 取生成的HTML的container，并转换成应用需要的draggable_components
         # 以page-2576.html为例
         test_html_path = ROOT_PATH+"/page-2576.html"
