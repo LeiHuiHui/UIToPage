@@ -94,7 +94,7 @@ class UIRecongnizer:
         result, _ = self.sampler.predict_greedy(self.model, np.array([evaluation_img]),require_sparse_label=False)
         print("Result greedy: {}".format(result))
         gui = result.replace(START_TOKEN, "").replace(END_TOKEN, "")
-        gui_file_path = "{}/{}.gui".format(output_path, file_name)
+        gui_file_path = "{}{}.gui".format(output_path, file_name)
         with open(gui_file_path, 'w') as out_f:
             out_f.write(gui)
         return gui_file_path,gui
@@ -109,4 +109,4 @@ class UIRecongnizer:
         print(output_file_path)
 
         self.compiler.compile_p2c(input_file_path, output_file_path, rendering_function=self.render_content_with_text)
-        return html_file_path
+        return output_file_path
