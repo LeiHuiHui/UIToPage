@@ -51,10 +51,14 @@ class UIRecongnizer:
         self.input_shape = meta_dataset[0]
         self.output_size = meta_dataset[1]
         self.vocabulary_size = meta_dataset[2]
+        print("初始化model...")
         self.model = newpix2code(self.input_shape, self.output_size, self.trained_model_path, self.vocabulary_size)
-        self.model.load(name=self.trained_model_name, weights_name=self.trained_weights_file)
+        print("初始化sampler...")
         self.sampler = Sampler(self.trained_model_path, self.input_shape, self.output_size, CONTEXT_LENGTH)
+        print("初始化compiler...")
         self.compiler = Compiler(self.dsl_path)
+        print("loading weights...")
+        self.model.load(name=self.trained_model_name, weights_name=self.trained_weights_file)
 
     def loadUI(self,ui_image_path):
         # 从路径中读取图片，并预处理成模型需要的大小
@@ -95,5 +99,5 @@ class UIRecongnizer:
         output_file_path = "{}{}.html".format(path, file_uid)
         print(output_file_path)
 
-        self.compiler.compile_p2c(input_file_path, output_file_path, rendering_function=render_content_with_text)
+        self.compiler.compile_p2c(input_file_path, output_file_path, rendering_function=self.render_content_with_text)
         return 0
