@@ -57,7 +57,7 @@ class UIRecongnizer:
         self.sampler = Sampler(self.trained_model_path, self.input_shape, self.output_size, CONTEXT_LENGTH)
         print("初始化compiler...")
         self.compiler = Compiler(self.dsl_path)
-        print("loading weights...")
+        print("载入 weights...")
         self.model.load(name=self.trained_model_name, weights_name=self.trained_weights_file)
 
     def loadUI(self,ui_image_path):

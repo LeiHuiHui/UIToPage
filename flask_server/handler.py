@@ -1,5 +1,5 @@
 import os
-from assets.Utils import *
+from assets.Libs import *
 from assets.Config import *
 
 
