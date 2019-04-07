@@ -1866,7 +1866,9 @@
             // var form_data = new FormData($ui_image_form[0]);
             console.log(form_data);
             $.ajax({
-                url: "http://127.0.0.1:8000/sample",
+                // url: "http://127.0.0.1:8000/sample",
+                // url: "231548t35n.51mypc.cn:57795",
+                url: "10.24.81.115:5000/sample",
                 type: "POST",
                 async: true,
                 cache: false,
@@ -1891,6 +1893,7 @@
 
                 },
                 error: function(XHR, errorInfo) {
+                    console.log(errorInfo);
                     alert("上传失败");
                 }
             })
