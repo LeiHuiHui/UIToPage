@@ -21,6 +21,15 @@ def make_soup(html_file_path):
     htmlfile.close()
     return soup
 
+def get_preprocessed_img(img_path, image_size):
+    import cv2
+    img = cv2.imread(img_path)
+    img = cv2.resize(img, (image_size, image_size))
+    img = img.astype('float32')
+    # Normalize image to between 0 and 255
+    img /= 255
+    return img
+
 # 生成唯一的文件名，避免重复
 class Pic_str:
     def create_uuid(self):  # 生成唯一的图片的名称字符串，防止图片显示时的重名问题
@@ -57,13 +66,13 @@ class UIRecongnizer:
         self.sampler = Sampler(self.trained_model_path, self.input_shape, self.output_size, CONTEXT_LENGTH)
         print("初始化compiler...")
         self.compiler = Compiler(self.dsl_path)
-        print("载入 weights...")
+        print("载入weights...")
         self.model.load(name=self.trained_model_name, weights_name=self.trained_weights_file)
 
     def loadUI(self,ui_image_path):
         # 从路径中读取图片，并预处理成模型需要的大小
         file_name = basename(ui_image_path)[:basename(ui_image_path).find(".")]
-        evaluation_img = Utils.get_preprocessed_img(ui_image_path, IMAGE_SIZE)
+        evaluation_img = get_preprocessed_img(ui_image_path, IMAGE_SIZE)
         return file_name,evaluation_img
     
     def render_content_with_text(self, key, value):
