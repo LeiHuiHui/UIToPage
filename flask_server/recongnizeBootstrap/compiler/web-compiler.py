@@ -41,8 +41,8 @@ path = input_file[:input_file.find(file_uid)]
 
 input_file_path = "{}{}.gui".format(path, file_uid)
 output_file_path = "{}{}.html".format(path, file_uid)
-print(output_file_path)
 tokens = open(input_file_path).read()
-print(tokens)
+print("get tokens:",tokens)
+print("output html file path:",output_file_path)
 # compiler.compile_p2c(input_file_path, output_file_path, rendering_function=render_content_with_text)
 compiler.compile(tokens,output_file_path)

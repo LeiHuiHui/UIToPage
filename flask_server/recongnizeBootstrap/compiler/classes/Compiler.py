@@ -32,7 +32,7 @@ class Compiler:
         dsl_file = tokens
         
         #Parse fix
-        dsl_file = dsl_file[1:-1]
+        # dsl_file = dsl_file[1:-1]
         dsl_file = ' '.join(dsl_file)
         dsl_file = dsl_file.replace('{', '{8').replace('}', '8}8')
         dsl_file = dsl_file.replace(' ', '')

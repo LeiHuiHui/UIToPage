@@ -106,7 +106,9 @@ class UIRecongnizer:
 
         input_file_path = "{}{}.gui".format(path, file_uid)
         output_file_path = "{}{}.html".format(path, file_uid)
-        print(output_file_path)
-
-        self.compiler.compile_p2c(input_file_path, output_file_path, rendering_function=self.render_content_with_text)
+        tokens = gui
+        print("get tokens:",tokens)
+        print("output html file path:",output_file_path)
+        # compiler.compile_p2c(input_file_path, output_file_path, rendering_function=render_content_with_text)
+        self.compiler.compile(tokens,output_file_path)
         return output_file_path
