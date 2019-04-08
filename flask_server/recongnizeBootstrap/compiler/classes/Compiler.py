@@ -64,7 +64,8 @@ class Compiler:
             return "Parsing Error"
         
         with open(output_file_path, 'w') as output_file:
-           output_file.write(output_html)
+            output_file.write(output_html)
+            print("complie successful!")
         return output_html
 
     def compile_p2c(self, input_file_path, output_file_path, rendering_function=None):
