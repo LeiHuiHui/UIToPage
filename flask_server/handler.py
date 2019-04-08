@@ -26,8 +26,8 @@ def sample_ui_to_html(img_path,output_path):
     '''
     recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
     recognizer.initialRecongnizer()
-    gui_file_path, gui = recognizer.get_gui(img_path,output_path)
-    html_file_path = recognizer.get_html(gui_file_path)
+    gui_file_path, result_gui = recognizer.get_gui(img_path,output_path)
+    html_file_path = recognizer.get_html(gui_file_path, result_gui)
     return html_file_path
 
 def parse_html(html_file_path):
@@ -97,6 +97,6 @@ def parse_html(html_file_path):
             component_num += 1
             del tag[ATTR_FOR_PARSE]
             tag = main.find(attrs={"%s" % (ATTR_FOR_PARSE): re.compile(r".")})
-        print("parse %s layouts to draggable components successful!" % test_html_path)
+        print("parse %s layouts to draggable components successful!" % html_file_path)
         # print(type(main.prettify())) # 返回str
         return main.prettify()

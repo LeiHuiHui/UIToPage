@@ -99,7 +99,7 @@ class UIRecongnizer:
             out_f.write(gui)
         return gui_file_path,gui
 
-    def get_html(self, gui_file):
+    def get_html(self, gui_file, gui):
         # 调用模型compiler，得到UI对应的html代码
         file_uid = basename(gui_file)[:basename(gui_file).find(".")]
         path = gui_file[:gui_file.find(file_uid)]
