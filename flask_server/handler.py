@@ -17,7 +17,9 @@ def save_file(file, path):
     ui_img_name = "{}.{}".format(uniq_name,file_type)
     img_save_path = os.path.join(path,ui_img_name)
     file.save(img_save_path)
-    print("接收UI image，保存至",img_save_path)
+    while os.access(img_save_path,os.R_OK) and os.path.getsize(img_save_path)>0:
+        print("接收UI image，保存至",img_save_path)
+        break
     return img_save_path
 
 def sample_ui_to_html_withoutInitial(recognizer,img_path,output_path):
