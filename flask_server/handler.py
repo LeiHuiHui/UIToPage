@@ -20,6 +20,14 @@ def save_file(file, path):
     print("接收UI image，保存至",img_save_path)
     return img_save_path
 
+def sample_ui_to_html_withoutInitial(recognizer,img_path,output_path):
+    '''
+    img_path:UI img的绝对路径
+    '''
+    gui_file_path, result_gui = recognizer.get_gui(img_path,output_path)
+    html_file_path = recognizer.get_html(gui_file_path, result_gui)
+    return html_file_path
+
 def sample_ui_to_html(img_path,output_path):
     '''
     img_path:UI img的绝对路径
