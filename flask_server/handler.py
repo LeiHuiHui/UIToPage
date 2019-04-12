@@ -34,6 +34,7 @@ def sample_ui_to_html(img_path,output_path):
     '''
     img_path:UI img的绝对路径
     '''
+    recognizer = None
     recognizer = UIRecongnizer(TRAINED_MODEL_FOLDER,TRAINED_WEIGHTS_FILE,TRAINED_MODEL_NAME,DSL_PATH)
     recognizer.initialRecongnizer()
     gui_file_path, result_gui = recognizer.get_gui(img_path,output_path)
