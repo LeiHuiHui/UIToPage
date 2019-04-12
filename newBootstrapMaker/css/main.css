@@ -135,7 +135,7 @@ body {
     width: 180px;
     left: 0px;
     bottom: 0;
-    top: 32px;
+    top: 36px;
     background: #222;
     padding: 10px;
     z-index: 10;
@@ -516,7 +516,7 @@ body.devpreview {
 }
 
 #editorModal {
-    width: 640px;
+    /* width: 640px; */
 }
 
 a.language-selected {
@@ -530,10 +530,10 @@ body.edit.show-right-sidebar {
 
 .right-sidebar {
     position: fixed;
-    top: 32px;
+    top: 36px;
     bottom: 0;
     right: -200px;
-    width: 180px;
+    width: 200px;
     background: #222;
     z-index: 10;
     -webkit-transition: all 500ms ease;
