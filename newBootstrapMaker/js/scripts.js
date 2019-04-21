@@ -530,6 +530,7 @@ $(document).ready(function() {
     });
 
     $submitUIButton.click(function(e) {
+        $UIimageul.empty();
         if (e.preventDefault) e.preventDefault();
         var form_data = new FormData();
         form_data.append("ui_image", $UIinput[0].files[0]);
