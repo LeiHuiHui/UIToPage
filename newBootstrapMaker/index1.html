@@ -1757,37 +1757,527 @@
         <div class="row center">
 
             <!--/span-->
-            <div class="demo ui-sortable" style="min-height: 304px; " id="demo_panel">
-
-                <div class="lyrow">
-                    <a href="#close" class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
-                    <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
-                    <div class="preview">9 3</div>
-                    <div class="view">
-                        <div class="row clearfix">
-                            <div class="span12 column ui-sortable">
-
-                                <div class="box box-element ui-draggable" style="display: block; "> <a href="#close" class="remove label label-danger"><i
-                                            class="glyphicon-remove glyphicon"></i>删除</a> <span class="drag label label-default"><i
-                                            class="glyphicon glyphicon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-default btn-xs"
-                                            data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
-                                        <a class="btn btn-default btn-xs" href="#" rel="well">Well</a> </span>
-                                    <div class="preview">Jumbotron</div>
-                                    <div class="view">
-                                        <div class="jumbotron" contenteditable="true">
-                                            <h1>Hello，Bootstrap！</h1>
-                                            <p>这是一个简单的网页布局。</p>
-                                            <p>通过简单的拖拽来获得BootStrap风格的页面。</p>
+            <div class="demo ui-sortable" style="min-height: 486px;" id="demo_panel">
+                <main class="container-fluid">
+                    <div class="row clearfix">
+                        <div class="lyrow ui-draggable" component-name="12">
+                            <a class="remove label label-danger" href="#close">
+                                <i class="glyphicon-remove glyphicon">
+                       </i> 删除
+                            </a>
+                            <span class="drag label label-default">
+                       <i class="glyphicon glyphicon-move">
+                       </i>
+                       拖动
+                      </span>
+                            <div class="preview">
+                                <div class="preview-row">
+                                    <span class="preview-col preview-col-12">
+                         12
+                        </span>
+                                </div>
+                            </div>
+                            <div class="view">
+                                <div class="col-md-12 column ui-sortable">
+                                    <div class="box box-element ui-draggable" component-name="导航条">
+                                        <a class="remove label label-danger" href="#close">
+                                            <i class="glyphicon-remove glyphicon">
+                          </i> 删除
+                                        </a>
+                                        <span class="drag label label-default">
+                          <i class="glyphicon glyphicon-move">
+                          </i>
+                          拖动
+                         </span>
+                                        <span class="configuration">
+                          <button class="btn btn-default btn-xs" data-target="#editorModal" data-toggle="modal" role="button" type="button">
+                           编辑
+                          </button>
+                          <a class="btn btn-default btn-xs" href="#" rel="navbar-inverse">
+                           反色
+                          </a>
+                          <span class="btn-group">
+                           <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
+                            位置
+                            <span class="caret">
+                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="active">
+                                                <a href="#" rel="">
+                              Default
+                             </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" rel="navbar-static-top">
+                              Static to Top
+                             </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" rel="navbar-fixed-top">
+                              Fixed to Top
+                             </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" rel="navbar-fixed-bottom">
+                              Fixed to Bottom
+                             </a>
+                                            </li>
+                                        </ul>
+                                        </span>
+                                        </span>
+                                        <div class="preview">
+                                            导航条
+                                        </div>
+                                        <div class="view">
+                                            <nav class="navbar navbar-default navbar-static-top">
+                                                <div class="container">
+                                                    <div class="navbar-header">
+                                                        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+                              <span class="sr-only">
+                               Toggle navigation
+                              </span>
+                              <span class="icon-bar">
+                              </span>
+                              <span class="icon-bar">
+                              </span>
+                              <span class="icon-bar">
+                              </span>
+                             </button>
+                                                        <a class="navbar-brand" href="#">
+                              Brand
+                             </a>
+                                                    </div>
+                                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                                        <ul class="nav navbar-nav">
+                                                            <li class="dropdown">
+                                                                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Menu
+                                <span class="caret">
+                                </span>
+                               </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="#">
+                                  Action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Another action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Something else here
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Separated link
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  One more separated link
+                                 </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Menu
+                                <span class="caret">
+                                </span>
+                               </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="#">
+                                  Action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Another action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Something else here
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Separated link
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  One more separated link
+                                 </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                Link
+                               </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                Link
+                               </a>
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Menu
+                                <span class="caret">
+                                </span>
+                               </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="#">
+                                  Action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Another action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Something else here
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Separated link
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  One more separated link
+                                 </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Menu
+                                <span class="caret">
+                                </span>
+                               </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="#">
+                                  Action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Another action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Something else here
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Separated link
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  One more separated link
+                                 </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Menu
+                                <span class="caret">
+                                </span>
+                               </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="#">
+                                  Action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Another action
+                                 </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Something else here
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  Separated link
+                                 </a>
+                                                                    </li>
+                                                                    <li class="divider" role="separator">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                  One more separated link
+                                 </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                Link
+                               </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                Link
+                               </a>
+                                                            </li>
+                                                        </ul>
+                                                        <form class="navbar-form navbar-right">
+                                                            <div class="input-group">
+                                                                <input class="form-control" placeholder="" type="text">
+                                                                <a class="input-group-addon" href="#" type="button">
+                                search
+                               </a>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-
+                    <div class="row clearfix">
+                        <div class="lyrow ui-draggable" component-name="12">
+                            <a class="remove label label-danger" href="#close">
+                                <i class="glyphicon-remove glyphicon">
+                       </i> 删除
+                            </a>
+                            <span class="drag label label-default">
+                       <i class="glyphicon glyphicon-move">
+                       </i>
+                       拖动
+                      </span>
+                            <div class="preview">
+                                <div class="preview-row">
+                                    <span class="preview-col preview-col-12">
+                         12
+                        </span>
+                                </div>
+                            </div>
+                            <div class="view">
+                                <div class="col-md-12 column ui-sortable">
+                                    <div class="box box-element ui-draggable" component-name="巨幕">
+                                        <a class="remove label label-danger" href="#close">
+                                            <i class="glyphicon-remove glyphicon">
+                          </i> 删除
+                                        </a>
+                                        <span class="drag label label-default">
+                          <i class="glyphicon glyphicon-move">
+                          </i>
+                          拖动
+                         </span>
+                                        <span class="configuration">
+                          <button class="btn btn-default btn-xs" data-target="#editorModal" data-toggle="modal" role="button" type="button">
+                           编辑
+                          </button>
+                          <a class="btn btn-default btn-xs" href="#" rel="well">
+                           Well
+                          </a>
+                         </span>
+                                        <div class="preview">
+                                            巨幕
+                                        </div>
+                                        <div class="view">
+                                            <div class="jumbotron">
+                                                <div class="container">
+                                                    <h1>
+                                                        Hello, Bootstrap!
+                                                    </h1>
+                                                    <p>
+                                                        Bootstrap styles example
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="lyrow ui-draggable" component-name="12">
+                            <a class="remove label label-danger" href="#close">
+                                <i class="glyphicon-remove glyphicon">
+                       </i> 删除
+                            </a>
+                            <span class="drag label label-default">
+                       <i class="glyphicon glyphicon-move">
+                       </i>
+                       拖动
+                      </span>
+                            <div class="preview">
+                                <div class="preview-row">
+                                    <span class="preview-col preview-col-12">
+                         12
+                        </span>
+                                </div>
+                            </div>
+                            <div class="view">
+                                <div class="row clearfix">
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-danger" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-primary" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-success" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-success" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="lyrow ui-draggable" component-name="12">
+                            <a class="remove label label-danger" href="#close">
+                                <i class="glyphicon-remove glyphicon">
+                       </i> 删除
+                            </a>
+                            <span class="drag label label-default">
+                       <i class="glyphicon glyphicon-move">
+                       </i>
+                       拖动
+                      </span>
+                            <div class="preview">
+                                <div class="preview-row">
+                                    <span class="preview-col preview-col-12">
+                         12
+                        </span>
+                                </div>
+                            </div>
+                            <div class="view">
+                                <div class="row clearfix">
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-danger" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-primary" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-success" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                    <div class="col-sm-3 column ui-sortable">
+                                        <h4>
+                                            Title
+                                        </h4>
+                                        <p>
+                                            Bootstrap styles example
+                                        </p>
+                                        <a class="btn btn-success" href="#" role="button">
+                          Button
+                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <p>
+                            © Hui Lei 2019
+                        </p>
+                    </footer>
+                </main>
             </div>
             <!-- end demo -->
             <!--/span-->
