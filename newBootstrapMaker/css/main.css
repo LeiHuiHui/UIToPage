@@ -279,12 +279,16 @@ body {
     width: 100%;
 }
 
-.sidebar-nav .preview .preview-row .preview-col.preview-col-6 {
-    width: 50%;
+.sidebar-nav .preview .preview-row .preview-col.preview-col-10 {
+    width: 83.34%;
 }
 
 .sidebar-nav .preview .preview-row .preview-col.preview-col-8 {
     width: 66.66%;
+}
+
+.sidebar-nav .preview .preview-row .preview-col.preview-col-6 {
+    width: 50%;
 }
 
 .sidebar-nav .preview .preview-row .preview-col.preview-col-4 {
