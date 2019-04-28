@@ -161,3 +161,4 @@ Bootstrap/code/*
 
 *.vscode/
 flask_server/data/*
+flask_server/recongnizeBootstrap/trained_model/*

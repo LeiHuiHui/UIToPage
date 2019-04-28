@@ -91,9 +91,9 @@
                                     <i class="glyphicon-eye-open glyphicon"></i>预览</button>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-xs btn-success" data-target="#downloadModal" rel="/build/downloadModal" role="button" data-toggle="modal">
+                        <button type="button" class="btn btn-xs btn-success" data-target="#downloadModal" rel="" role="button" data-toggle="modal">
                                     <i class="glyphicon-chevron-down glyphicon"></i>下载</button>
-                        <button class="btn btn-xs btn-danger" href="#clear" id="clear">
+                        <button type="button" class="btn btn-xs btn-danger" id="" data-target="#confirmModal" role="button" data-toggle="modal">
                                     <i class="glyphicon-trash glyphicon"></i>清空</button>
                     </div>
                 </ul>
@@ -179,25 +179,25 @@
                             </div>
                         </div>
                         <div class="lyrow ui-draggable" component-name="210">
-                                <a href="#close" class="remove label label-danger">
-                                    <i class="glyphicon-remove glyphicon"></i> 删除
-                                </a>
-                                <span class="drag label label-default">
+                            <a href="#close" class="remove label label-danger">
+                                <i class="glyphicon-remove glyphicon"></i> 删除
+                            </a>
+                            <span class="drag label label-default">
                                     <i class="glyphicon glyphicon-move"></i>拖动
                                 </span>
-                                <div class="preview">
-                                    <div class="preview-row">
-                                        <div class="preview-col preview-col-2 preview-col-left">2</div>
-                                        <div class="preview-col preview-col-10 preview-col-right">10</div>
-                                    </div>
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-sm-2 column"></div>
-                                        <div class="col-sm-10 column"></div>
-                                    </div>
+                            <div class="preview">
+                                <div class="preview-row">
+                                    <div class="preview-col preview-col-2 preview-col-left">2</div>
+                                    <div class="preview-col preview-col-10 preview-col-right">10</div>
                                 </div>
                             </div>
+                            <div class="view">
+                                <div class="row clearfix">
+                                    <div class="col-sm-2 column"></div>
+                                    <div class="col-sm-10 column"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="lyrow ui-draggable" component-name="444">
                             <a href="#close" class="remove label label-danger">
                                 <i class="glyphicon-remove glyphicon"></i> 删除
@@ -688,6 +688,8 @@
                                 <i class="glyphicon glyphicon-move"></i>拖动
                             </span>
                             <span class="configuration">
+                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
+                                role="button" data-toggle="modal">编辑</button>
                                 <span class="btn-group">
                                     <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">样式
                                         <span class="caret"></span>
@@ -1813,7 +1815,7 @@
             <!--/span-->
 
             <div id="download-layout">
-                <div class="container-fluid"></div>
+                <div class="container"></div>
             </div>
         </div>
         <!--/row-->
@@ -1844,6 +1846,22 @@
             </div>
         </div>
     </div>
+    <div style="display: none;" class="modal fade" role="dialog" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+                    <h3>确定要清空吗?</h3>
+                </div>
+                <div class="modal-body">
+                    <p>清空后您当前所做的修改都将丢失</p>
+                </div>
+                <div class="modal-footer">
+                    <a id="clear" class="btn btn-primary" data-dismiss="modal">确定</a>
+                    <a class="btn" data-dismiss="modal">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div style="display:none;" class="modal fade" role="dialog" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1854,12 +1872,12 @@
                     <p>生成页面的Container代码如下所示,点击保存按钮下载完整可用页面到本地.</p>
 
                     <!-- <p>Choose how to save your layout</p> -->
-                    <!-- <div class="btn-group">
-                        <button type="button" id="fluidPage" class="active btn btn-info"><i
+                    <div class="btn-group" style="display:none">
+                        <button type="button" id="fluidPage" class="btn btn-info"><i
                                 class="icon-fullscreen icon-white"></i> Fluid Page</button>
-                        <button type="button" class="btn btn-info" id="fixedPage"><i
+                        <button type="button" class="active btn btn-info" id="fixedPage"><i
                                 class="icon-screenshot icon-white"></i> Fixed page</button>
-                    </div> -->
+                    </div>
                     <br>
                     <br>
                     <p>
