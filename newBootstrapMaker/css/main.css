@@ -55,6 +55,7 @@ body {
     color: #fff;
     padding: 0;
     margin: 0 5px;
+    cursor: default;
 }
 
 .navbar-layoutit .navbar-brand img {
@@ -64,7 +65,7 @@ body {
 
 .navbar-layoutit .navbar-brand .label {
     position: relative;
-    left: 10px;
+    /* left: 10px; */
     top: -3px;
     font-weight: normal;
     font-size: 9px;
