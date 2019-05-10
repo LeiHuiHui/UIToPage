@@ -368,7 +368,7 @@ $(document).ready(function() {
     CKEDITOR.disableAutoInline = true;
     restoreData();
     var contenthandle = CKEDITOR.replace('contenteditor', {
-        language: 'en',
+        language: 'zh-cn',
         contentsCss: ['css/bootstrap3_3_6.css'],
         allowedContent: true
     });
@@ -509,6 +509,10 @@ $(document).ready(function() {
         removeMenuClasses();
         $(this).addClass("active");
     });
+    $("#button_import_project").click(function(e) {
+        e.preventDefault();
+        importProject();
+    });
     // var $ui_image_form = $("#ui_image_form");
     var $UIinput = $("#ui_image_input");
     var $UIimageul = $("#ui_image_ul");
@@ -557,7 +561,7 @@ $(document).ready(function() {
                     var new_demo = data.main;
 
                     // 将demo下的元素替换成服务器返回的代码
-                    $demo = $("#demo_panel");
+                    var $demo = $("#demo_panel");
                     $demo.html(new_demo);
                 }
 
@@ -602,4 +606,30 @@ function saveHtml() {
         var blob = new Blob([webpage], { type: "text/html;charset=utf-8" });
         saveAs(blob, "webpage.html");
     }
+}
+
+function exportProject() {
+    // get project code
+    var project = $("#demo_panel").html();
+    // save project to .vml file
+    var vml_blob = new Blob([project],{ type: "text/html;charset=utf-8" });
+    saveAs(vml_blob, "newproject.vml");
+}
+
+function importProject() {
+    // choose project file
+    var import_project_file = $("#import_project_input")[0].files[0]; 
+    // read project file
+    if(import_project_file){
+        var reader = new FileReader();
+        reader.readAsText(import_project_file,"UTF-8");
+        reader.onload = function(e){
+            var project_code = this.result;
+            console.log(project_code);
+            // load code to #demo_panel
+            $("#demo_panel").html(project_code);
+        }
+    }
+    // 如果在预览界面,关闭预览
+    // alert("yes!");
 }

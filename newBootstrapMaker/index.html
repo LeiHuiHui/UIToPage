@@ -60,9 +60,9 @@
                     <li class="divider-vertical"></li>
                     <li>
                         <div class="btn-group" data-toggle="buttons-radio">
-                            <button class="btn btn-xs btn-primary" href="" id="">
+                            <button class="btn btn-xs btn-primary" href="" id="button_import_modal" data-target="#importModal" role="button" data-toggle="modal">
                                     <i class="glyphicon glyphicon-import"></i> 导入工程</button>
-                            <button class="btn btn-xs btn-primary" href="" id="">
+                            <button class="btn btn-xs btn-primary" href="" id="button_export" onclick="javascript:exportProject()">
                                     <i class="glyphicon glyphicon-export"></i> 导出工程</button>
                         </div>
                         <div class="btn-group">
@@ -70,7 +70,7 @@
                                 <i class="glyphicon glyphicon-picture"></i> AI识别
                             </button>
                         </div>
-                        
+
                         <!-- <div class="btn-group" data-toggle="buttons-radio">
                             <button type="button" id="active-sidebar-right" class="btn btn-xs btn-primary" role="button">
                                 <i class="glyphicon glyphicon-picture"></i>
@@ -1890,7 +1890,8 @@
                         <textarea></textarea>
                     </p>
                 </div>
-                <div class="modal-footer"> <a class="btn btn-primary" data-dismiss="modal" onclick="javascript:saveHtml();">保存</a>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" onclick="javascript:saveHtml();">保存</a>
                 </div>
             </div>
         </div>
@@ -1914,6 +1915,26 @@
                 <div class="modal-footer">
                     <button type="button" id="submit_ui_button" class="btn btn-primary">提交</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" class="modal fade" role="dialog" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+                    <h3>导入工程</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="import_project_input">选择工程</label>
+                        <input type="file" id="import_project_input" name="" accept=".vml">
+                        <p class="help-block">提示:请先将当前工程导出,否则将丢失.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="button_import_project" class="btn btn-primary" data-dismiss="modal">确定</a>
+                    <a class="btn" data-dismiss="modal">取消</a>
                 </div>
             </div>
         </div>
