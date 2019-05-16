@@ -296,7 +296,7 @@
                             <div class="preview">页头</div>
                             <div class="view">
                                 <div class="page-header" contenteditable="true">
-                                    <h1>Example Page Header<small>Subtext for header</small></h1>
+                                    <h1>页主标题<small>页副标题</small></h1>
                                 </div>
                             </div>
                         </div>
@@ -324,9 +324,9 @@
                                         data-toggle="dropdown" href="#">标记 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="active"><a href="#" rel="">默认</a></li>
-                                <li class=""><a href="#" rel="muted">禁用</a></li>
+                                <li class=""><a href="#" rel="text-muted">禁用</a></li>
                                 <li class=""><a href="#" rel="text-warning">警告</a></li>
-                                <li class=""><a href="#" rel="text-error">错误</a></li>
+                                <li class=""><a href="#" rel="text-danger">错误</a></li>
                                 <li class=""><a href="#" rel="text-info">提示</a></li>
                                 <li class=""><a href="#" rel="text-success">成功</a></li>
                             </ul>
@@ -357,14 +357,14 @@
                                         data-toggle="dropdown" href="#">标记 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="active"><a href="#" rel="">默认</a></li>
-                                <li class=""><a href="#" rel="muted">禁用</a></li>
+                                <li class=""><a href="#" rel="text-muted">禁用</a></li>
                                 <li class=""><a href="#" rel="text-warning">警告</a></li>
-                                <li class=""><a href="#" rel="text-error">错误</a></li>
+                                <li class=""><a href="#" rel="text-danger">错误</a></li>
                                 <li class=""><a href="#" rel="text-info">提示</a></li>
                                 <li class=""><a href="#" rel="text-success">成功</a></li>
                             </ul>
                             </span>
-                            <a class="btn btn-default btn-xs" href="#" rel="lead">Lead</a> </span>
+                            <a class="btn btn-default btn-xs" href="#" rel="lead">突出段落</a> </span>
                             <div class="preview">段落</div>
                             <div class="view" contenteditable="true">
                                 <p><em>Git</em>是一个分布式的版本控制系统，最初由<b>Linus
@@ -380,10 +380,33 @@
                                     role="button" data-toggle="modal">编辑</button></span>
                             <div class="preview">组合文本</div>
                             <div class="view">
-                                <h2 contenteditable="true">Header</h2>
-                                <p contenteditable="true">Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip
-                                    steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
-                                <p><a class="btn" href="#" contenteditable="true">Details</a></p>
+                                <h2 contenteditable="true">标题</h2>
+                                <p contenteditable="true">这是一个示例段落，点击来修改它。p标签定义段落。可以只在块（block）内指定段落，也可以把段落和其他段落、列表、表单和预定义格式的文本一起使用。总的来讲，这意味着段落可以在任何有合适的文本流的地方出现，例如文档的主体中、列表的元素里，等等。</p>
+                                <p><a href="#" contenteditable="true">>>了解更多</a></p>
+                            </div>
+                        </div>
+                        <div class="box box-element ui-draggable" component-name="详细描述">
+                            <a href="#close" class="remove label label-danger"><i
+                                    class="glyphicon-remove glyphicon"></i>删除</a>
+                            <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                            <span class="configuration">
+                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑</button>
+                                <a class="btn btn-default btn-xs" href="#" rel="dl-horizontal">竖向对齐</a>
+                            </span>
+                            <div class="preview">详细描述</div>
+                            <div class="view">
+                                <dl contenteditable="true">
+                                    <dt>Rolex</dt>
+                                    <dd>劳力士创始人为汉斯.威尔斯多夫，1908年他在瑞士将劳力士注册为商标。</dd>
+                                    <dt>Vacheron Constantin</dt>
+                                    <dd>始创于1775年的江诗丹顿已有250年历史，</dd>
+                                    <dd>是世界上历史最悠久、延续时间最长的名表之一。</dd>
+                                    <dt>IWC</dt>
+                                    <dd>创立于1868年的万国表有“机械表专家”之称。</dd>
+                                    <dt>Cartier</dt>
+                                    <dd>卡地亚拥有150多年历史，是法国珠宝金银首饰的制造名家。</dd>
+                                </dl>
                             </div>
                         </div>
                         <div class="box box-element ui-draggable" component-name="地址">
@@ -397,15 +420,14 @@
                             <div class="preview">地址</div>
                             <div class="view">
                                 <address contenteditable="true">
-                                    <strong>Twitter, Inc.</strong><br>
-                                    1355 Market Street, Suite 900<br>
-                                    San Francisco, CA 94103<br>
-                                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                                    <strong>厦门大学</strong><br>
+                                    <abbr title="Address">地址:</abbr>福建省厦门市思明区思明南路422号<br>
+                                    <abbr title="Phone">电话:</abbr> 0592-2180000
                                 </address>
 
                                 <address contenteditable="true">
-                                    <strong>Full Name</strong><br>
-                                    <a href="mailto:#">first.last@example.com</a>
+                                    <strong>联系我们</strong><br>
+                                    <a href="mailto:#">user@example.com</a>
                                 </address>
                             </div>
                         </div>
@@ -472,30 +494,6 @@
                                     <li>房产家居</li>
                                     <li>网络游戏</li>
                                 </ol>
-                            </div>
-                        </div>
-                        <div class="box box-element ui-draggable" component-name="详细描述">
-                            <a href="#close" class="remove label label-danger"><i
-                                    class="glyphicon-remove glyphicon"></i>删除</a>
-                            <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
-                            <span class="configuration">
-                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
-                                    role="button" data-toggle="modal">编辑</button>
-                                <a class="btn btn-default btn-xs" href="#" rel="dl-horizontal">竖向对齐</a>
-                            </span>
-                            <div class="preview">详细描述</div>
-                            <div class="view">
-                                <dl contenteditable="true">
-                                    <dt>Rolex</dt>
-                                    <dd>劳力士创始人为汉斯.威尔斯多夫，1908年他在瑞士将劳力士注册为商标。</dd>
-                                    <dt>Vacheron Constantin</dt>
-                                    <dd>始创于1775年的江诗丹顿已有250年历史，</dd>
-                                    <dd>是世界上历史最悠久、延续时间最长的名表之一。</dd>
-                                    <dt>IWC</dt>
-                                    <dd>创立于1868年的万国表有“机械表专家”之称。</dd>
-                                    <dt>Cartier</dt>
-                                    <dd>卡地亚拥有150多年历史，是法国珠宝金银首饰的制造名家。</dd>
-                                </dl>
                             </div>
                         </div>
                         <div class="box box-element ui-draggable" component-name="表格">
@@ -613,7 +611,7 @@
                                 <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
                                     role="button" data-toggle="modal">编辑</button>
                             </span>
-                            <div class="preview">纵向表单</div>
+                            <div class="preview">纵向对齐表单</div>
                             <div class="view">
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
@@ -660,12 +658,11 @@
                                         <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="active"><a href="#" rel="">默认</a></li>
-                                <li class=""><a href="#" rel="btn-primary">重点</a></li>
-                                <li class=""><a href="#" rel="btn-info">信息</a></li>
+                                <li class=""><a href="#" rel="btn-primary">首选项</a></li>
+                                <li class=""><a href="#" rel="btn-info">一般信息</a></li>
                                 <li class=""><a href="#" rel="btn-success">成功</a></li>
-                                <li class=""><a href="#" rel="btn-warning">提醒</a></li>
+                                <li class=""><a href="#" rel="btn-warning">警告</a></li>
                                 <li class=""><a href="#" rel="btn-danger">危险</a></li>
-                                <li class=""><a href="#" rel="btn-inverse">反转</a></li>
                                 <li class=""><a href="#" rel="btn-link">链接</a></li>
                             </ul>
                             </span>
@@ -673,10 +670,10 @@
                                     <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">尺寸
                                         <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class=""><a href="#" rel="btn-large">大</a></li>
+                                <li class=""><a href="#" rel="btn-lg">大</a></li>
                                 <li class="active"><a href="#" rel="">中</a></li>
-                                <li class=""><a href="#" rel="btn-small">小</a></li>
-                                <li class=""><a href="#" rel="btn-mini">迷你</a></li>
+                                <li class=""><a href="#" rel="btn-sm">小</a></li>
+                                <li class=""><a href="#" rel="btn-xs">迷你</a></li>
                             </ul>
                             </span>
                             <a class="btn btn-default btn-xs" href="#" rel="btn-block">块级按钮</a> <a class="btn btn-default btn-xs" href="#" rel="disabled">禁用</a> </span>
@@ -686,7 +683,7 @@
                             </div>
                         </div>
 
-                        <div class="box box-element ui-draggable" component-name="图片">
+                        <!--<div class="box box-element ui-draggable" component-name="图片">
                             <a href="#close" class="remove label label-danger">
                                 <i class="glyphicon-remove glyphicon"></i>删除
                             </a>
@@ -701,16 +698,18 @@
                                         <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="#" rel="">默认</a></li>
-                                <li class=""><a href="#" rel="img-rounded">圆角</a></li>
-                                <li class=""><a href="#" rel="img-circle">圆圈</a></li>
-                                <li class=""><a href="#" rel="img-polaroid">相框</a></li>
+                                <li class="active"><a href="#" rel="" class="addonchildren">默认</a></li>
+                                <li class=""><a href="#" class="addonchildren" rel="img-rounded">圆角</a></li>
+                                <li class=""><a href="#" class="addonchildren" rel="img-circle">圆圈</a></li>
+                                <li class=""><a href="#" class="addonchildren" rel="img-polaroid">相框</a></li>
                             </ul>
                             </span>
                             </span>
                             <div class="preview">图片</div>
-                            <div class="view"> <img alt="140x140" src="img/a.jpg"> </div>
-                        </div>
+                            <div class="view">
+                                <div><img alt="140x140" src="img/a.jpg"></div>
+                            </div>
+                        </div>-->
 
                         <!-- <div class="box box-element ui-draggable" component-name="Dashboard">
                             <a href="#close" class="remove label label-danger">
@@ -903,7 +902,7 @@
                         </div>
                     </li>
                     <li class="boxes" id="elmComponents">
-                        <div class="box box-element ui-draggable" component-name="按钮组">
+                        <!--<div class="box box-element ui-draggable" component-name="按钮组">
                             <a href="#close" class="remove label label-danger">
                                 <i class="glyphicon-remove glyphicon"></i>删除
                             </a>
@@ -953,7 +952,7 @@
                                     <button type="button" class="btn btn-default" contenteditable="true">Right</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="box box-element ui-draggable" component-name="按钮工具栏">
                             <a href="#close" class="remove label label-danger">
                                 <i class="glyphicon-remove glyphicon"></i>删除
@@ -968,8 +967,8 @@
                                     <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
                                         href="#">方向<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="#" rel="">默认（水平）</a></li>
-                                <li class=""><a href="#" rel="btn-group-vertical">竖直</a></li>
+                                <li class="active"><a href="#" class="addonchildren" rel="">默认（水平）</a></li>
+                                <li class=""><a href="#" class="addonchildren" rel="btn-group-vertical">竖直</a></li>
                             </ul>
                             </span>
                             <span class="btn-group btn-group-xs">
@@ -996,7 +995,7 @@
                             </ul>
                             </span>
                             </span>
-                            <div class="preview">按钮工具栏</div>
+                            <div class="preview">按钮组</div>
                             <div class="view">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group" role="group" aria-label="First group">
@@ -1082,10 +1081,9 @@
                             <div class="view">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"
-                                            contenteditable="true">Go!</button>
-                                    </span>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="button" contenteditable="true">Go!</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1116,7 +1114,7 @@
                                 <ul class="nav nav-tabs" contenteditable="true">
                                     <li class="active"><a href="#">Home</a></li>
                                     <li><a href="#">Profile</a></li>
-                                    <li class="disabled"><a href="#">Messages</a></li>
+                                    <li class=""><a href="#">Messages <span class="badge">10</span></a></li>
                                     <li class="dropdown pull-right"> <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="#">Action</a></li>
@@ -1140,7 +1138,7 @@
                                     role="button" data-toggle="modal">编辑</button>
                                 <a class="btn btn-default btn-xs" href="#" rel="well">Well</a>
                             </span>
-                            <div class="preview">导航列表</div>
+                            <div class="preview">侧栏导航列表</div>
                             <div class="view">
                                 <ul class="nav nav-list" contenteditable="true">
                                     <li class="nav-header">Headers</li>
@@ -1149,6 +1147,7 @@
                                     <li><a href="#">Application</a></li>
                                     <li class="nav-header">Another List Header</li>
                                     <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Messages <span class="badge">10</span></a></li>
                                     <li><a href="#">Settings</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Help</a></li>
@@ -1234,38 +1233,40 @@
                             <span class="drag label label-default">
                                 <i class="glyphicon glyphicon-move"></i>拖动
                             </span>
-                            <span class="configuration">
+                            <div class="configuration">
                                 <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
                                     role="button" data-toggle="modal">编辑</button>
-                                <span class="btn-group">
+                                <div class="btn-group">
                                     <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">样式
                                         <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="">
-                                    <a href="#" rel="label-default">Default</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="label-primary">Primary</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="label-success">Success</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="label-info">Info</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="label-warning">Warning</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="label-danger">Danger</a>
-                                </li>
-                            </ul>
-                            </span>
-                            </span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="">
+                                            <a href="#" class="addonchildren" rel="label-default">默认</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="addonchildren" rel="label-primary">基本</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="addonchildren" rel="label-success">成功</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="addonchildren" rel="label-info">信息</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="addonchildren" rel="label-warning">警告</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="addonchildren" rel="label-danger">危险</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="preview">标签</div>
                             <div class="view">
-                                <span class="label label-default" contenteditable="true">标签</span>
+                                <div>
+                                    <span class="label label-default" contenteditable="true">标签</span>
+                                </div>
                             </div>
                         </div>
                         <div class="box box-element ui-draggable" component-name="徽章">
@@ -1280,7 +1281,11 @@
                                     role="button" data-toggle="modal">编辑</button>
                             </span>
                             <div class="preview">徽章</div>
-                            <div class="view"> <span class="badge" contenteditable="true">1</span> </div>
+                            <div class="view">
+                                <div>
+                                    <span class="badge" contenteditable="true">1</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="box box-element ui-draggable" component-name="巨幕">
@@ -1291,7 +1296,7 @@
                             <span class="configuration">
                                 <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
                                     role="button" data-toggle="modal">编辑</button>
-                                <a class="btn btn-default btn-xs" href="#" rel="well">Well</a>
+                                <!--<a class="btn btn-default btn-xs" href="#" rel="well">Well</a>-->
                             </span>
                             <div class="preview">巨幕</div>
                             <div class="view">
@@ -1315,9 +1320,10 @@
                             <div class="preview">平铺略缩图</div>
                             <div class="view">
                                 <div class="row">
-                                    <!-- 以下是一个略缩图示例 -->
+                                    <!-- 以下是一个完整的略缩图示例 -->
                                     <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail"> <img alt="300x200" src="img/people.jpg">
+                                        <div class="thumbnail">
+                                            <img alt="300x200" src="img/people.jpg">
                                             <div class="caption" contenteditable="true">
                                                 <h3>Thumbnail label</h3>
                                                 <p> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump
@@ -1326,9 +1332,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- 以上是一个略缩图示例 -->
+                                    <!-- 以上是一个完整的略缩图示例 -->
                                     <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail"> <img alt="300x200" src="img/city.jpg">
+                                        <div class="thumbnail">
+                                            <img alt="300x200" src="img/city.jpg">
                                             <div class="caption" contenteditable="true">
                                                 <h3>Thumbnail label</h3>
                                                 <p> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump
@@ -1338,7 +1345,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail"> <img alt="300x200" src="img/sports.jpg">
+                                        <div class="thumbnail">
+                                            <img alt="300x200" src="img/sports.jpg">
                                             <div class="caption" contenteditable="true">
                                                 <h3>Thumbnail label</h3>
                                                 <p> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump
@@ -1421,10 +1429,10 @@
                                     <a class="list-group-item">List group item</a>
                                     <a class="list-group-item disabled">List group item disabled</a>
                                     <a class="list-group-item"><span class="badge">14</span>List group item with Badge</a>
-                                    <a class="list-group-item">
+                                    <div class="list-group-item">
                                         <h4 class="list-group-item-heading">List group item heading</h4>
                                         <p class="list-group-item-text">列表组中的每个元素都可以是任何 HTML 内容</p>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1437,18 +1445,17 @@
                                 <i class="glyphicon glyphicon-move"></i>拖动
                             </span>
                             <span class="configuration">
-                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
-                                    role="button" data-toggle="modal">编辑</button>
+                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
                                 <span class="btn-group">
                                     <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">样式
                                         <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="#" rel="panel-default">Default</a></li>
-                                <li class=""><a href="#" rel="panel-primary">Primary</a></li>
-                                <li class=""><a href="#" rel="panel-success">Success</a></li>
-                                <li class=""><a href="#" rel="panel-info">Info</a></li>
-                                <li class=""><a href="#" rel="panel-warning">Warning</a></li>
-                                <li class=""><a href="#" rel="panel-danger">Danger</a></li>
+                                <li class="active"><a href="#" rel="panel-default">默认</a></li>
+                                <li class=""><a href="#" rel="panel-primary">基本</a></li>
+                                <li class=""><a href="#" rel="panel-success">成功</a></li>
+                                <li class=""><a href="#" rel="panel-info">信息</a></li>
+                                <li class=""><a href="#" rel="panel-warning">警告</a></li>
+                                <li class=""><a href="#" rel="panel-danger">危险</a></li>
                             </ul>
                             </span>
                             </span>
@@ -1490,6 +1497,9 @@
                             <a href="#close" class="remove label label-danger">
                                 <i class="glyphicon-remove glyphicon"></i>删除</a>
                             <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                            <div class="configuration">
+                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+                            </div>
                             <div class="preview">模态框</div>
                             <div class="view">
                                 <!-- Button to trigger modal -->
@@ -1516,6 +1526,44 @@
                                     <!-- /.modal-dialog -->
                                 </div>
                                 <!-- /.modal -->
+                            </div>
+                        </div>
+
+                        <div class="box box-element ui-draggable" component-name="提示框">
+                            <a href="#close" class="remove label label-danger">
+                                <i class="glyphicon-remove glyphicon"></i>删除
+                            </a>
+                            <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                            <span class="configuration">
+                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑</button>
+                                <span class="btn-group">
+                                    <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">样式
+                                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="">
+                                    <a href="#" rel="alert-success">成功</a>
+                                </li>
+                                <li class="">
+                                    <a href="#" rel="alert-info">一般信息</a>
+                                </li>
+                                <li class="">
+                                    <a href="#" rel="alert-warning">警告</a>
+                                </li>
+                                <li class="">
+                                    <a href="#" rel="alert-danger">危险</a>
+                                </li>
+                            </ul>
+                            </span>
+                            </span>
+                            <div class="preview">提示框</div>
+                            <div class="view">
+                                <div class="alert alert-success alert-dismissable" contenteditable="true">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4>注意!</h4>
+                                    <strong>Warning!</strong> Best check yo self, you're not looking too good.
+                                    <a href="#" class="alert-link">alert link</a>
+                                </div>
                             </div>
                         </div>
 
@@ -1550,20 +1598,20 @@
                                             <span class="icon-bar"></span>
                                             <span class="icon-bar"></span>
                                         </button>
-                                        <a class="navbar-brand" href="#">Brand</a>
+                                        <a class="navbar-brand" href="#" contenteditable="true">Brand</a>
                                     </div>
 
                                     <!-- Collect the nav links, forms, and other content for toggling -->
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav">
                                             <li class="active">
-                                                <a href="#">Link</a>
+                                                <a href="#" contenteditable="true">Link</a>
                                             </li>
                                             <li>
-                                                <a href="#">Link</a>
+                                                <a href="#" contenteditable="true">Link</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" contenteditable="true">
                                                     Dropdown <b class="caret"></b>
                                                 </a>
                                                 <ul class="dropdown-menu">
@@ -1590,14 +1638,14 @@
                                         <form class="navbar-form navbar-left" role="search">
                                             <div class="form-group">
                                                 <input class="form-control" placeholder="Search" type="text"></div>
-                                            <button type="submit" class="btn btn-default">Submit</button>
+                                            <button type="submit" class="btn btn-default" contenteditable="true">Submit</button>
                                         </form>
                                         <ul class="nav navbar-nav navbar-right">
                                             <li>
-                                                <a href="#">Link</a>
+                                                <a href="#" contenteditable="true">Link</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" contenteditable="true">
                                                     Dropdown
                                                     <b class="caret"></b>
                                                 </a>
@@ -1639,8 +1687,8 @@
                                 <div class="tabbable" id="myTabs">
                                     <!-- Only required for left/right tabs -->
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab1" data-toggle="tab" contenteditable="true">Section 1</a></li>
-                                        <li><a href="#tab2" data-toggle="tab" contenteditable="true">Section 2</a></li>
+                                        <li class="active"><a href="#tab1" data-toggle="tab" contenteditable="true">标签页1</a></li>
+                                        <li><a href="#tab2" data-toggle="tab" contenteditable="true">标签页2</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab1" contenteditable="true">
@@ -1653,44 +1701,6 @@
                                                 pork belly, doner cow pastrami corned beef.</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="box box-element ui-draggable" component-name="提示框">
-                            <a href="#close" class="remove label label-danger">
-                                <i class="glyphicon-remove glyphicon"></i>删除
-                            </a>
-                            <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
-                            <span class="configuration">
-                                <button type="button" class="btn btn-default btn-xs" data-target="#editorModal"
-                                    role="button" data-toggle="modal">编辑</button>
-                                <span class="btn-group">
-                                    <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#">样式
-                                        <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="">
-                                    <a href="#" rel="alert-success">Success</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="alert-info">Info</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="alert-warning">Warning</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" rel="alert-danger">Danger</a>
-                                </li>
-                            </ul>
-                            </span>
-                            </span>
-                            <div class="preview">提示框</div>
-                            <div class="view">
-                                <div class="alert alert-success alert-dismissable" contenteditable="true">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4>注意!</h4>
-                                    <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                                    <a href="#" class="alert-link">alert link</a>
                                 </div>
                             </div>
                         </div>
@@ -1709,21 +1719,21 @@
                                 <div class="panel-group" id="myAccordion">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne" contenteditable="true">Collapsible Group Item
-                                                #1</a>
+                                            <a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne" contenteditable="true">
+                                                可折叠面板 #1</a>
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in">
-                                            <div class="panel-body" contenteditable="true">Anim pariatur cliche...
+                                            <div class="panel-body" contenteditable="true">点击面板标题展开此内容，再次点击折叠。
                                             </div>
                                         </div>
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo" contenteditable="true">Collapsible Group Item
-                                                #2</a>
+                                            <a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo" contenteditable="true">
+                                                可折叠面板 #2</a>
                                         </div>
                                         <div id="collapseTwo" class="panel-collapse collapse">
-                                            <div class="panel-body" contenteditable="true">Anim pariatur cliche...
+                                            <div class="panel-body" contenteditable="true">点击面板标题展开此内容，再次点击折叠。
                                             </div>
                                         </div>
                                     </div>
@@ -1744,26 +1754,31 @@
                             <div class="view">
                                 <div class="carousel slide" id="myCarousel">
                                     <ol class="carousel-indicators">
+                                        <!--圆点列表-->
                                         <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
                                         <li data-slide-to="1" data-target="#myCarousel" class=""></li>
                                         <li data-slide-to="2" data-target="#myCarousel" class=""></li>
                                     </ol>
                                     <div class="carousel-inner">
-                                        <div class="item active"> <img alt="" src="img/1.jpg">
+                                        <!--每张图片及其描述都包含在一个class="item"的标签中-->
+                                        <div class="item active">
+                                            <img alt="" src="img/1.jpg">
                                             <div class="carousel-caption" contenteditable="true">
                                                 <h4>First Thumbnail Label</h4>
                                                 <p>Bacon ipsum dolor sit amet ground round culpa elit, irure incididunt short ribs tongue sed. Chicken swine cupidatat deserunt. Tongue short ribs bacon bresaola sausage. Rump biltong ribeye tri-tip tenderloin
                                                     kielbasa. Meatloaf consequat voluptate dolor pork belly t-bone, turducken cow sunt sint.</p>
                                             </div>
                                         </div>
-                                        <div class="item"> <img alt="" src="img/2.jpg">
+                                        <div class="item">
+                                            <img alt="" src="img/2.jpg">
                                             <div class="carousel-caption" contenteditable="true">
                                                 <h4>Second Thumbnail Label</h4>
                                                 <p>Flank drumstick culpa ground round mollit enim turducken eu bacon pork chop. Prosciutto short loin est short ribs drumstick pork loin salami cillum hamburger beef excepteur veniam meatloaf. Turducken consectetur
                                                     jowl occaecat eu pancetta sunt ut pork loin. Non shank boudin frankfurter bresaola.</p>
                                             </div>
                                         </div>
-                                        <div class="item"> <img alt="" src="img/3.jpg">
+                                        <div class="item">
+                                            <img alt="" src="img/3.jpg">
                                             <div class="carousel-caption" contenteditable="true">
                                                 <h4>Third Thumbnail Label</h4>
                                                 <p>Veniam in aute, consequat hamburger mollit nisi leberkas chuck ut prosciutto drumstick short loin frankfurter. Aute salami duis voluptate magna kielbasa swine in. Magna pancetta chuck, aliqua laboris ribeye
@@ -1801,7 +1816,8 @@
                                             class="glyphicon-remove glyphicon"></i>删除</a> <span class="drag label label-default"><i
                                             class="glyphicon glyphicon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-default btn-xs"
                                             data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
-                                        <a class="btn btn-default btn-xs" href="#" rel="well">Well</a> </span>
+                                        <!--<a class="btn btn-default btn-xs" href="#" rel="well">Well</a> -->
+                                </span>
                                     <div class="preview">Jumbotron</div>
                                     <div class="view">
                                         <div class="jumbotron" contenteditable="true">

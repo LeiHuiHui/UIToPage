@@ -371,6 +371,34 @@ $(document).ready(function() {
         language: 'zh-cn',
         contentsCss: ['css/bootstrap3_3_6.css'],
         allowedContent: true,
+        toolbar:[
+            {
+                name: 'document',
+                items: ['Undo', 'Redo','-','Paste','PasteText','PasteFromWord']
+            },
+            {
+                name: 'styles',
+                items: ['Format']
+            },
+            {
+                name: 'basicstyles',
+                items: ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat']
+            },
+            {
+                name: 'paragraph',
+                items: ['NumberedList', 'BulletedList']
+            },
+            // {
+            //     name: 'links',
+            //     items: ['Link', 'Unlink']
+            // },
+            // {
+            //     name: 'insert',
+            //     items: ['Image', 'Table']
+            // },
+            { name: 'tools',items:['Maximize'] },
+            { name: 'document' ,items:['Source']},
+        ],
         on:{
             instanceReady:function (ev) {
                 this.dataProcessor.writer.setRules( 'div', {
@@ -378,6 +406,27 @@ $(document).ready(function() {
                     breakBeforeOpen: true,
                     breakAfterOpen: true,
                     breakBeforeClose: true,
+                    breakAfterClose: true
+                });
+                this.dataProcessor.writer.setRules( 'button', {
+                    indent: true,
+                    breakBeforeOpen: true,
+                    breakAfterOpen: true,
+                    breakBeforeClose: true,
+                    breakAfterClose: true
+                });
+                this.dataProcessor.writer.setRules( 'span', {
+                    indent: false,
+                    breakBeforeOpen: true,
+                    breakAfterOpen: false,
+                    breakBeforeClose: false,
+                    breakAfterClose: true
+                });
+                this.dataProcessor.writer.setRules( 'a', {
+                    indent: true,
+                    breakBeforeOpen: false,
+                    breakAfterOpen: false,
+                    breakBeforeClose: false,
                     breakAfterClose: true
                 });
             }
