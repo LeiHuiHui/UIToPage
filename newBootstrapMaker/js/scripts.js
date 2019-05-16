@@ -370,7 +370,18 @@ $(document).ready(function() {
     var contenthandle = CKEDITOR.replace('contenteditor', {
         language: 'zh-cn',
         contentsCss: ['css/bootstrap3_3_6.css'],
-        allowedContent: true
+        allowedContent: true,
+        on:{
+            instanceReady:function (ev) {
+                this.dataProcessor.writer.setRules( 'div', {
+                    indent: true,
+                    breakBeforeOpen: true,
+                    breakAfterOpen: true,
+                    breakBeforeClose: true,
+                    breakAfterClose: true
+                });
+            }
+        }
     });
     $("body").css("min-height", $(window).height() - 50);
     $(".demo").css("min-height", $(window).height() - 130);
