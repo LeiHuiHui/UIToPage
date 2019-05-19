@@ -1,0 +1,113 @@
+<main class="container-fluid">
+ <div class="container">
+  <div class="lyrow ui-draggable" component-name="12">
+   <a class="remove label label-danger" href="#close">
+    <i class="glyphicon-remove glyphicon">
+    </i>
+    删除
+   </a>
+   <span class="drag label label-default">
+    <i class="glyphicon glyphicon-move">
+    </i>
+    拖动
+   </span>
+   <div class="preview">
+    <div class="preview-row">
+     <span class="preview-col preview-col-12">
+      12
+     </span>
+    </div>
+   </div>
+   <div class="view">
+    <div class="row row-centered clearfix">
+     <div class="well col-md-6 col-centered column ui-sortable">
+      <h2>
+       FORM
+      </h2>
+      <div class="box box-element ui-draggable" component-name="基础表单">
+       <a class="remove label label-danger" href="#close">
+        <i class="glyphicon-remove glyphicon">
+        </i>
+        删除
+       </a>
+       <span class="drag label label-default">
+        <i class="glyphicon glyphicon-move">
+        </i>
+        拖动
+       </span>
+       <span class="configuration">
+        <a class="btn btn-default btn-xs" data-target="#editorModal" data-toggle="modal" role="button" type="button">
+         编辑
+        </a>
+        <a class="btn btn-default btn-xs" href="#" rel="form-inline">
+         inline
+        </a>
+       </span>
+       <div class="preview">
+        基础表单
+       </div>
+       <div class="view">
+        <form>
+         <div class="form-group">
+          <label for="">
+           LABEL
+          </label>
+          <input class="form-control" id="" placeholder="" type="text">
+         </div>
+         <div class="form-group">
+          <label for="">
+           LABEL
+          </label>
+          <input class="form-control" id="" placeholder="" type="text">
+         </div>
+         <div class="form-group">
+          <label for="">
+           LABEL
+          </label>
+          <input class="form-control" id="" placeholder="" type="text">
+         </div>
+         <div class="form-group">
+          <label for="">
+           file input
+          </label>
+          <input id="" type="file">
+         </div>
+         <div class="form-group">
+          <div class="checkbox-inline">
+           <label>
+            <input type="checkbox">
+            checkbox
+           </label>
+          </div>
+          <div class="checkbox-inline">
+           <label>
+            <input type="checkbox">
+            checkbox
+           </label>
+          </div>
+          <div class="checkbox-inline">
+           <label>
+            <input type="checkbox">
+            checkbox
+           </label>
+          </div>
+         </div>
+         <div class="form-group">
+          <a class="btn btn-default" href="#" role="button">
+           Button
+          </a>
+         </div>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <footer class="footer">
+  <p>
+   © Hui Lei 2019
+  </p>
+ </footer>
+</main>
