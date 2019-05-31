@@ -1,8 +1,59 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win
+
+const template = [
+    {
+        label:'文件',
+        submenu:[
+            {
+                label:'导入工程',
+                accelerator: 'CmdOrCtrl+I',
+            },
+            {
+                label:'导出工程',
+                accelerator: 'CmdOrCtrl+E',
+            },
+            {
+                label:'下载页面',
+                accelerator: 'CmdOrCtrl+S',
+            }
+        ]
+    },
+    {
+        label:'编辑',
+        submenu:[
+            {
+                label:'上一步',
+                accelerator: 'CmdOrCtrl+Z',
+            },
+            {
+                label:'下一步',
+                accelerator: 'Shift+CmdOrCtrl+Z',
+            },
+            {
+                label:'清空',
+                accelerator: 'CmdOrCtrl+D',
+            }
+        ]
+    },
+    {
+        label:'视图',
+        submenu:[
+            {
+                label:'预览',
+                accelerator: 'CmdOrCtrl+P',
+            },
+            {
+                label:'退出预览',
+                accelerator: 'Shift+CmdOrCtrl+P',
+            }
+        ]
+    },
+
+]
 
 function createWindow() {
     // 创建浏览器窗口
@@ -32,7 +83,13 @@ function createWindow() {
 // Electron 会在初始化后并准备
 // 创建浏览器窗口时，调用这个函数。
 // 部分 API 在 ready 事件触发后才能使用。
-app.on('ready',createWindow)
+// app.on('ready',createWindow)
+app.on('ready',function(){
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu) // 设置菜单部分
+    createWindow()
+})
+
 
 // 当全部窗口关闭时退出。
 app.on('window-all-closed', () => {
