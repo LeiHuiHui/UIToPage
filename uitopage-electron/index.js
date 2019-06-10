@@ -9,11 +9,12 @@ const template = [
         label:'文件',
         submenu:[
             {
-                label:'导入工程',
+                label:'导入工程文件',
                 accelerator: 'CmdOrCtrl+I',
+                click: function(menuItem,browserWindow){console.log("hello");}
             },
             {
-                label:'导出工程',
+                label:'导出工程文件',
                 accelerator: 'CmdOrCtrl+E',
             },
             {
@@ -52,6 +53,15 @@ const template = [
             }
         ]
     },
+    {
+        label:'AI识别',
+        submenu:[
+            {
+                label:'导入UI截图',
+                accelerator: 'CmdOrCtrl+U',
+            }
+        ]
+    }
 
 ]
 
@@ -69,7 +79,7 @@ function createWindow() {
     win.loadFile('index.html')
 
     // 打开开发者工具
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
 
     // 当 window 被关闭，这个事件会被触发。
     win.on('closed', () => {
@@ -86,7 +96,7 @@ function createWindow() {
 // app.on('ready',createWindow)
 app.on('ready',function(){
     const menu = Menu.buildFromTemplate(template)
-    Menu.setApplicationMenu(menu) // 设置菜单部分
+    Menu.setApplicationMenu(null) // 设置菜单部分
     createWindow()
 })
 
