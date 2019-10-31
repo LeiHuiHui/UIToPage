@@ -5,7 +5,7 @@ opencv-python==3.3.0.10
 h5py==2.7.1
 kulc==0.0.9
 matplotlib==3.0.3
-nltk==3.4
+nltk==3.4.5
 
 graphviz
 floyd-cli
